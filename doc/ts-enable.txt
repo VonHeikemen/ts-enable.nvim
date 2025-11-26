@@ -1,0 +1,121 @@
+*ts-enable.txt*                An easy way to enable treesitter based features
+
+For Neovim version 0.11
+
+==============================================================================
+Introduction                                          *ts-enable-introduction*
+
+`ts-enable` aims to complement nvim-treesitter's new version, the one in the
+main branch. It implements the boilerplate code needed to enable features
+based on treesitter.
+
+==============================================================================
+Configuration                                               *ts-enable-config*
+
+This plugin should be configured using a **vim global variable** called
+`ts_enable`. You can create that variable anywhere you want. `init.lua`,
+`init.vim` or any random script that Neovim can pick up during the startup
+process.
+
+Here's example using all the default values as reference.
+>vim
+  " These are the default values. Change them as you see fit.
+  let g:ts_enable = {
+  \ 'parsers': [],
+  \ 'auto_install': v:false,
+  \ 'highlights': v:false,
+  \ 'folds': v:false,
+  \ 'indents': v:false,
+  \}
+<
+In a lua file to create a vim global use `vim.g`. In this case assign a lua
+table with the settings you want.
+>lua
+  -- These are the default values. Change them as you see fit.
+  vim.g.ts_enable = {
+    parsers = {},
+    auto_install = false,
+    highlights = false,
+    folds = false,
+    indents = false,
+  }
+<
+• parsers: list of strings. Treesitter parsers that you want to use. If
+  `auto_install` is enabled and `nvim-treesitter` is installed, the parser
+  will be downloaded if needed.
+
+• auto_install: boolean. If enabled use `nvim-treesitter` to install a missing
+  parser.
+
+• highlights: boolean. If enabled use |vim.treesitter.start()| to enable
+  treesitter based syntax highlight.
+
+• folds: boolean. If enabled set the option |'foldexpr'| to use treesitter.
+
+• indents: boolean. If enabled set the option |'indentexpr'| to use an
+  experimental function from `nvim-treesitter`.
+
+==============================================================================
+Commands                                                  *ts-enable-commands*
+
+TSEnableExec {method}: ~
+    So, {method} should be the name of a lua function of the module
+    `ts-enable`. This is just a convenience command for you to execute
+    functions available in the lua API.
+
+    Valid {methods} include:
+        • start
+        • stop
+        • toggle
+        • attach
+        • detach
+        • ensure_installed
+
+==============================================================================
+Lua API                                                    *ts-enable-lua-api*
+
+                                                           *ts-enable.start()*
+
+start({bufnr}, {lang}, {config}): ~
+    Enable treesitter features in {buffer}.
+
+                                                            *ts-enable.stop()*
+
+stop({bufnr}): ~
+    Disable treesitter highlights and restore previous options.
+
+                                                          *ts-enable.toggle()*
+
+toggle({bufnr}): ~
+    Start or stop treesitter.
+
+                                                          *ts-enable.attach()*
+
+attach({bufnr}, {filetype}): ~
+    Enable treesitter features and, if needed, install missing parsers.
+
+                                                          *ts-enable.detach()*
+
+detach({bufnr}, {filetype}): ~
+    Stop treesitter and set g:ts_enable_attach to 0 which prevents the
+    execution of |ts-enable.attach()| when opening a file.
+
+                                                           *ts-enable.setup()*
+
+setup({opts}): ~
+    Set configuration options. This function is here only to comply with
+    lazy.nvim options api.
+
+                                                *ts-enable.ensure_installed()*
+
+ensure_installed(): ~
+    Ensure parsers specified in g:ts_enable are installed. Installation is
+    handled by nvim-treesitter.
+
+==============================================================================
+Support                                                   *ts-enable-donation*
+
+If you find this tool useful and want to support my efforts, consider
+leaving a tip in https://ko-fi.com/vonheikemen
+
+vim:tw=78:ft=help:norl:
