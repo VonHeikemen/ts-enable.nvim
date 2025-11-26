@@ -1,13 +1,7 @@
 local M = {}
 
-local parsers = (vim.g.ts_enable or {}).parsers
-local filetypes = vim.iter(parsers or {})
-  :map(vim.treesitter.language.get_filetypes)
-  :flatten()
-  :fold({}, function(tbl, v)
-    tbl[v] = 0
-    return tbl
-  end)
+local filetypes = {}
+local initialized = false
 
 ---@class TSEnable.Config
 ---@inlinedoc
@@ -151,6 +145,18 @@ end
 ---@param buffer? number
 ---@param ft? string
 function M.attach(buffer, ft)
+  if not initialized then
+    local parsers = (vim.g.ts_enable or {}).parsers
+    initialized = true
+    filetypes = vim.iter(parsers or {})
+      :map(vim.treesitter.language.get_filetypes)
+      :flatten()
+      :fold({}, function(tbl, v)
+        tbl[v] = 0
+        return tbl
+      end)
+  end
+
   if buffer == nil then
     buffer = vim.api.nvim_get_current_buf()
   end
