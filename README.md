@@ -66,6 +66,7 @@ let g:ts_enable = {
 \ 'highlights': v:false,
 \ 'folds': v:false,
 \ 'indents': v:false,
+\ 'parser_settings': {},
 \}
 ```
 
@@ -79,6 +80,7 @@ vim.g.ts_enable = {
   highlights = false,
   folds = false,
   indents = false,
+  parser_settings = {},
 }
 ```
 
@@ -91,6 +93,8 @@ vim.g.ts_enable = {
 * `folds`: boolean. If enabled set the option `foldexpr` to use treesitter.
 
 * `indents`: boolean. If enabled set the option `indentexpr` to use an experimental function from `nvim-treesitter`.
+
+* `parser_settings`: table. Override global config for a specific parser.
 
 ## Notes
 
@@ -125,9 +129,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 ### Download everything and the kitchen sink
 
-`ts-enable.nvim` can download missing parsers on demand, meaning it'll only use parsers for the files you open. So I don't think is such a terrible idea to list all the available parsers in `nvim-treesitter`. Is still not the best idea, though. If you happen to find a parser that has performance issues it would be your job to write the code that excludes the bad parser.
-
-Anyway, this is how you do it in lua:
+`ts-enable.nvim` can download missing parsers on demand, meaning it'll only try to get the parsers for the files you open. So I don't think is such a terrible idea to list all the available parsers in `nvim-treesitter`. If you happen to find a parser that has performance issues, disable it using the `parser_settings` property.
 
 ```lua
 vim.g.ts_enable = {
@@ -146,6 +148,44 @@ let g:ts_enable = {
 \ 'highlights': v:true,
 \}
 ```
+
+## Disable a parser
+
+You can override the configuration for a parser using `parser_settings`.
+
+In the following example all the features are enable on the global config, but for the zimbu parser everything will be disabled.
+
+```lua
+vim.g.ts_enable = {
+  parsers = require('nvim-treesitter').get_available(),
+  auto_install = true,
+  highlights = true,
+  folds = true,
+  indents = true,
+  parser_settings = {
+    zimbu = {}
+  },
+}
+```
+
+The options in `parser_settings` take complete control over the features you want to enable. So an empty table (or vimscript object) will make `ts-enable.nvim` ignore the parser completely.
+
+If you still want to use one feature of the parser but not others, then enable the ones you want.
+
+```lua
+vim.g.ts_enable = {
+  parsers = require('nvim-treesitter').get_available(),
+  auto_install = true,
+  highlights = true,
+  folds = true,
+  indents = true,
+  parser_settings = {
+    zimbu = {auto_install = true, highlights = true},
+  },
+}
+```
+
+By the way, zimbu is not an actual parser available in nvim-treesitter. Is just a silly example.
 
 ## lazy.nvim configuration?
 

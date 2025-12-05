@@ -26,6 +26,7 @@ Here's example using all the default values as reference.
   \ 'highlights': v:false,
   \ 'folds': v:false,
   \ 'indents': v:false,
+  \ 'parser_settings': {},
   \}
 <
 In a lua file to create a vim global use `vim.g`. In this case assign a lua
@@ -38,6 +39,7 @@ table with the settings you want.
     highlights = false,
     folds = false,
     indents = false,
+    parser_settings = {},
   }
 <
 • parsers: list of strings. Treesitter parsers that you want to use. If
@@ -54,6 +56,8 @@ table with the settings you want.
 
 • indents: boolean. If enabled set the option |'indentexpr'| to use an
   experimental function from `nvim-treesitter`.
+
+• parser_settings: table. Override global config for a specific parser.
 
 ==============================================================================
 Commands                                                  *ts-enable-commands*

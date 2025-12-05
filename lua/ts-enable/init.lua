@@ -22,8 +22,8 @@ local initialized = false
 ---Set nvim-treesitter indent expression
 ---@field indents? boolean
 ---
----Create autocommand during Neovim's startup process
----@field create_autocmd? boolean
+---Override global config for a specific parser
+---@field parser_settings? table<string, any>
 
 local function init()
   if initialized then
@@ -62,7 +62,8 @@ function M.start(buffer, lang, config)
       init()
     end
 
-    config = global_config
+    local parser_config = vim.tbl_get(global_config, 'parser_settings', lang) or false
+    config = parser_config or global_config
   end
 
   local buf = vim.b[buffer]
@@ -194,12 +195,23 @@ function M.attach(buffer, ft)
     filetypes[ft] = 1
   end
 
+  local parser_config = vim.tbl_get(global_config, 'parser_settings', lang) or false
+
   if available == 1 then
-    M.start(buffer, lang, global_config)
+    M.start(buffer, lang, parser_config or global_config)
     return
   end
 
-  if global_config.auto_install ~= true or available == -1 then
+  if available == -1 then
+    return
+  end
+
+  local auto_install = global_config.auto_install
+  if type(parser_config) == 'table' then
+    auto_install = parser_config.auto_install
+  end
+
+  if auto_install ~= true then
     return
   end
 
@@ -213,7 +225,7 @@ function M.attach(buffer, ft)
     filetypes[ft] = parser_installed and 1 or -1
 
     if parser_installed then
-      M.start(buffer, lang, global_config)
+      M.start(buffer, lang, parser_config or global_config)
     end
   end)
 end
