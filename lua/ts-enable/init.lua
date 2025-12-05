@@ -1,6 +1,7 @@
 local M = {}
 
 local filetypes = {}
+local global_config = {}
 local initialized = false
 
 ---@class TSEnable.Config
@@ -24,6 +25,23 @@ local initialized = false
 ---Create autocommand during Neovim's startup process
 ---@field create_autocmd? boolean
 
+local function init()
+  if initialized then
+    return
+  end
+
+  initialized = true
+  global_config = vim.g.ts_enable or {}
+
+  filetypes = vim.iter(global_config.parsers or {})
+    :map(vim.treesitter.language.get_filetypes)
+    :flatten()
+    :fold({}, function(tbl, v)
+      tbl[v] = 0
+      return tbl
+    end)
+end
+
 ---Enable treesitter features
 ---@param buffer? number
 ---@param lang? string
@@ -40,7 +58,11 @@ function M.start(buffer, lang, config)
   end
 
   if config == nil then
-    config = vim.g.ts_enable or {}
+    if not initialized then
+      init()
+    end
+
+    config = global_config
   end
 
   local buf = vim.b[buffer]
@@ -146,15 +168,7 @@ end
 ---@param ft? string
 function M.attach(buffer, ft)
   if not initialized then
-    local parsers = (vim.g.ts_enable or {}).parsers
-    initialized = true
-    filetypes = vim.iter(parsers or {})
-      :map(vim.treesitter.language.get_filetypes)
-      :flatten()
-      :fold({}, function(tbl, v)
-        tbl[v] = 0
-        return tbl
-      end)
+    init()
   end
 
   if buffer == nil then
@@ -181,12 +195,11 @@ function M.attach(buffer, ft)
   end
 
   if available == 1 then
-    M.start(buffer, lang, config)
+    M.start(buffer, lang, global_config)
     return
   end
 
-  local config = vim.g.ts_enable or {}
-  if config.auto_install ~= true or available == -1 then
+  if global_config.auto_install ~= true or available == -1 then
     return
   end
 
@@ -200,22 +213,20 @@ function M.attach(buffer, ft)
     filetypes[ft] = parser_installed and 1 or -1
 
     if parser_installed then
-      M.start(buffer, lang, config)
+      M.start(buffer, lang, global_config)
     end
   end)
 end
 
 ---Ensure parsers specified in g:ts_enable are installed. Installation is handled by nvim-treesitter.
 function M.ensure_installed()
-  local config = vim.g.ts_enable or {}
-  local parsers = config.parsers or {}
-
   local ok, nvim_ts = pcall(require, 'nvim-treesitter')
   if not ok then
     return
   end
 
-  nvim_ts.install(parsers)
+  local config = vim.g.ts_enable or {}
+  nvim_ts.install(config.parsers or {})
 end
 
 return M
