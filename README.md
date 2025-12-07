@@ -1,6 +1,6 @@
 # TS-enable
 
-This plugin complements nvim-treesitter's new version, the one in [the main branch](https://github.com/nvim-treesitter/nvim-treesitter/tree/main). It implements the boilerplate code needed to enable features based on treesitter.
+This plugin will help you enable features that depend on [treesitter](#what-is-treesitter). It is a complement to nvim-treesitter's new version, the one in [the main branch](https://github.com/nvim-treesitter/nvim-treesitter/tree/main).
 
 The idea here is to be able to use treesitter by setting a few variables. For example:
 
@@ -104,7 +104,7 @@ Here I'll give you a summary. For more details you can read this: [Treesitter in
 
 The main purpose of treesitter is to read the source code of a file and turn that into a data structure. Why? Because it's easier to extract information from structured data than plain text. And what do **we** do with this data thing? Us, casual Neovim users, we do nothing. Neovim mantainers and plugin authors are the ones implementing the features **we** will use.
 
-Language support is where things get interesting. Treesitter is not a miracle silver bullet that supports every programming language. We add support for a language by installing the appropiate "treesitter parser," which is the component that deals with the specific syntax of language.
+Language support is where things get interesting. Treesitter is not a miracle silver bullet that supports every programming language. We add support for a language by installing the appropiate "treesitter parser," which is the component that deals with the specific syntax of a language.
 
 ### ts-enable.nvim is not strictly needed
 
