@@ -98,6 +98,14 @@ vim.g.ts_enable = {
 
 ## Notes
 
+### What is treesitter?
+
+Here I'll give you a summary. For more details you can read this: [Treesitter in Neovim](https://vonheikemen.github.io/learn-nvim/feature/treesitter.html).
+
+The main purpose of treesitter is to read the source code of a file and turn that into a data structure. Why? Because it's easier to extract information from structured data than plain text. And what do **we** do with this data thing? Us, casual Neovim users, we do nothing. Neovim mantainers and plugin authors are the ones implementing the features **we** will use.
+
+Language support is where things get interesting. Treesitter is not a miracle silver bullet that supports every programming language. We add support for a language by installing the appropiate "treesitter parser," which is the component that deals with the specific syntax of language.
+
 ### ts-enable.nvim is not strictly needed
 
 If you don't mind having a bit of code in your personal configuration, you could skip `ts-enable.nvim` entirely. Just install treesitter parsers ahead of time and mantain your own autocommand with the features you want to enable.
