@@ -58,9 +58,14 @@ local function parser_installed(lang)
   end
 
   local query_pattern = string.format('queries/%s', lang)
-  local query = vim.api.nvim_get_runtime_file(query_pattern, false)[1]
+  local query = vim.api.nvim_get_runtime_file(query_pattern, true)
+  local runtime = vim.env.VIMRUNTIME
 
-  if installed and vim.startswith(query, vim.env.VIMRUNTIME) then
+  local is_builtin = function(q)
+    return vim.startswith(q, runtime)
+  end
+
+  if installed and vim.iter(query):find(is_builtin) then
     -- register as builtin in case auto_install is set to false
     global_config._builtin_parsers[lang] = true
 
