@@ -47,7 +47,13 @@ local function init()
   local nvim_ts = vim.api.nvim_get_runtime_file(nvim_ts_path, false)[1]
   skip_nvim_ts = nvim_ts == nil
 
-  global_config._builtin_parsers = {}
+  -- register builtin parsers
+  local queries = 'queries/*/highlights.scm'
+  local builtin = vim.iter(vim.fn.globpath(vim.env.VIMRUNTIME, queries, 0, 1))
+    :map(function(q) return vim.fn.fnamemodify(q, ':h:t') end)
+    :fold({}, function(t, v) t[v] = true; return t end)
+
+  global_config._builtin_parsers = builtin
 end
 
 local function parser_installed(lang)
@@ -57,18 +63,7 @@ local function parser_installed(lang)
     return installed
   end
 
-  local query_pattern = string.format('queries/%s', lang)
-  local query = vim.api.nvim_get_runtime_file(query_pattern, true)
-  local runtime = vim.env.VIMRUNTIME
-
-  local is_builtin = function(q)
-    return vim.startswith(q, runtime)
-  end
-
-  if installed and vim.iter(query):find(is_builtin) then
-    -- register as builtin in case auto_install is set to false
-    global_config._builtin_parsers[lang] = true
-
+  if installed and global_config._builtin_parsers[lang] then
     -- return false to force nvim-treesitter's install function
     return false
   end
@@ -96,10 +91,10 @@ local function ts_install(buffer, lang, ft)
   end
 
   nvim_ts.install(lang):await(function()
-    local parser_installed = vim.treesitter.language.add(lang) == true
-    filetypes[ft] = parser_installed and 1 or -1
+    local installed = vim.treesitter.language.add(lang) == true
+    filetypes[ft] = installed and 1 or -1
 
-    if parser_installed then
+    if installed then
       M.start(buffer, lang)
     end
   end)
