@@ -139,20 +139,22 @@ function M.start(buffer, lang, config)
   if config.folds then
     local ok, fld = pcall(ts.query.get, lang, 'folds')
     if ok and fld then
-      local old_method = vim.wo.foldmethod
-      local old_expr = vim.wo.foldexpr
+      local winid = vim.api.nvim_get_current_win()
+      local win = vim.w[winid]
+      local old_method = vim.api.nvim_get_option_value('foldmethod', {scope = 'local', win = winid})
+      local old_expr = vim.api.nvim_get_option_value('foldexpr', {scope = 'local', win = winid})
 
       local new_method = 'expr'
       local new_expr = 'v:lua.vim.treesitter.foldexpr()'
 
       if old_method ~= new_method then
-        vim.wo.foldmethod = new_method
-        vim.w.ts_enable_wo_foldmethod = old_method
+        vim.api.nvim_set_option_value('foldmethod', new_method, {scope = 'local', win = winid})
+        win.ts_enable_wo_foldmethod = old_method
       end
 
       if old_expr ~= new_expr then
-        vim.wo.foldexpr = new_expr
-        vim.w.ts_enable_wo_foldexpr = old_expr
+        vim.api.nvim_set_option_value('foldexpr', new_expr, {scope = 'local', win = winid})
+        win.ts_enable_wo_foldexpr = old_expr
       end
     end
   end
@@ -164,8 +166,8 @@ function M.start(buffer, lang, config)
       local new_expr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
       if old_expr ~= new_expr then
-        vim.bo[buffer].indentexpr = new_expr
-        buf.ts_enable_bo_indentexpr = old_expr
+        vim.api.nvim_set_option_value('indentexpr', new_expr, {scope = 'local', buf = buffer})
+        buf.ts_enable_bo_indentexpr = type(old_expr) == 'string' and old_expr or false
       end
     end
   end
@@ -178,6 +180,9 @@ function M.stop(buffer)
     buffer = vim.api.nvim_get_current_buf()
   end
 
+  local set_option = vim.api.nvim_set_option_value
+  local winid = vim.api.nvim_get_current_win()
+  local win = vim.w[winid]
   local buf = vim.b[buffer]
 
   if buf.ts_highlight then
@@ -186,16 +191,16 @@ function M.stop(buffer)
 
   buf.ts_enable_active = false
 
-  if vim.w.ts_enable_wo_foldmethod then
-    vim.wo.foldmethod = vim.w.ts_enable_wo_foldmethod
+  if win.ts_enable_wo_foldmethod then
+    set_option('foldmethod', win.ts_enable_wo_foldmethod, {scope = 'local', win = winid})
   end
 
-  if vim.w.ts_enable_wo_foldexpr then
-    vim.wo.foldexpr = vim.w.ts_enable_wo_foldexpr
+  if win.ts_enable_wo_foldexpr then
+    set_option('foldexpr', win.ts_enable_wo_foldexpr, {scope = 'local', win = winid})
   end
 
   if buf.ts_enable_bo_indentexpr then
-    vim.bo[buffer].indentexpr = buf.ts_enable_bo_indentexpr
+    set_option('indentexpr', buf.ts_enable_bo_indentexpr, {scope = 'local', buf = buffer})
   end
 end
 
