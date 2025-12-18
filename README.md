@@ -1,6 +1,6 @@
 # TS-enable
 
-This plugin will help you enable features that depend on [treesitter](#what-is-treesitter). It is a complement to nvim-treesitter's new version, the one in [the main branch](https://github.com/nvim-treesitter/nvim-treesitter/tree/main).
+This plugin will help you enable features that depend on [treesitter](#what-is-treesitter). It is a complement to [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
 
 The idea here is to be able to use treesitter by setting a few variables. For example:
 
@@ -15,7 +15,7 @@ let g:ts_enable = {
 \}
 ```
 
-That's it. You don't have to learn new things to make this work. As long as you have the correct version of `nvim-treesitter` installed, `ts-enable.nvim` will take care of the rest.
+That's it. `ts-enable.nvim` will [take care of the details](#ts-enablenvim-is-not-strictly-needed), and if you want, it can use `nvim-treesitter` to install any missing treesitter parser on demand.
 
 If you prefer lua, don't worry. You can use `vim.g.ts_enable` in your configuration. I also added a thing to make it compatible with `lazy.nvim`'s option API.
 
