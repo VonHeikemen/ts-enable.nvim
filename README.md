@@ -27,7 +27,7 @@ Use your favorite plugin manager to install `ts-enable.nvim` and `nvim-treesitte
 
   ```vim
   Plug 'VonHeikemen/ts-enable.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main' }
+  Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '7caec274fd19c12b55902a5b795100d21531391f' }
   ```
 
 * mini.deps
@@ -36,7 +36,7 @@ Use your favorite plugin manager to install `ts-enable.nvim` and `nvim-treesitte
   MiniDeps.add('VonHeikemen/ts-enable.nvim')
   MiniDeps.add({
     source = 'nvim-treesitter/nvim-treesitter',
-    checkout = 'main',
+    checkout = '7caec274fd19c12b55902a5b795100d21531391f',
   })
   ```
 
@@ -47,7 +47,7 @@ Use your favorite plugin manager to install `ts-enable.nvim` and `nvim-treesitte
     'https://github.com/VonHeikemen/ts-enable.nvim',
     {
       src = 'https://github.com/nvim-treesitter/nvim-treesitter',
-      version = 'main',
+      version = '7caec274fd19c12b55902a5b795100d21531391f',
     },
   })
   ```
