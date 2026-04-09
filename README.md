@@ -2,6 +2,10 @@
 
 This plugin will help you enable features that depend on [treesitter](#what-is-treesitter). It is a complement to [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
 
+>[!IMPORTANT]
+> nvim-treesiter has been archived. I recommend installing the last commit that was compatible with Neovim v0.11.
+> I will start working on v2 of ts-enable.nvim to remove the dependency on nvim-treesitter.
+
 The idea here is to be able to use treesitter by setting a few variables. For example:
 
 ```vim
@@ -26,14 +30,17 @@ Use your favorite plugin manager to install `ts-enable.nvim` and `nvim-treesitte
 * vim-plug
 
   ```vim
-  Plug 'VonHeikemen/ts-enable.nvim'
+  Plug 'VonHeikemen/ts-enable.nvim', { 'branch': 'v1.x' }
   Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '7caec274fd19c12b55902a5b795100d21531391f' }
   ```
 
 * mini.deps
 
   ```lua
-  MiniDeps.add('VonHeikemen/ts-enable.nvim')
+  MiniDeps.add({
+    source = 'VonHeikemen/ts-enable.nvim',
+    checkout = 'v1.x',
+  })
   MiniDeps.add({
     source = 'nvim-treesitter/nvim-treesitter',
     checkout = '7caec274fd19c12b55902a5b795100d21531391f',
@@ -44,7 +51,10 @@ Use your favorite plugin manager to install `ts-enable.nvim` and `nvim-treesitte
 
   ```lua
   vim.pack.add({
-    'https://github.com/VonHeikemen/ts-enable.nvim',
+    {
+      src = 'https://github.com/VonHeikemen/ts-enable.nvim',
+      version = 'v1.x',
+    },
     {
       src = 'https://github.com/nvim-treesitter/nvim-treesitter',
       version = '7caec274fd19c12b55902a5b795100d21531391f',
@@ -125,8 +135,8 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.treesitter.start()
 
     -- enable folds
-    vim.wo.foldmethod = 'expr'
-    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.wo[0][0].foldmethod = 'expr'
+    vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
     -- enable indents
     -- NOTE: this feature depends on 'nvim-treesitter'
