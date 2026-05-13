@@ -1,18 +1,15 @@
 *ts-enable.txt*                An easy way to enable treesitter based features
 
-For Neovim version 0.11
-
 ==============================================================================
 Introduction                                          *ts-enable-introduction*
 
-`ts-enable` aims to complement nvim-treesitter's new version, the one in the
-main branch. It implements the boilerplate code needed to enable features
-based on treesitter.
+`ts-enable` implements the boilerplate code needed to enable features based on
+treesitter.
 
 ==============================================================================
 Configuration                                               *ts-enable-config*
 
-This plugin should be configured using a **vim global variable** called
+This plugin should be configured using a vim global variable called
 `ts_enable`. You can create that variable anywhere you want. `init.lua`,
 `init.vim` or any random script that Neovim can pick up during the startup
 process.
@@ -21,11 +18,11 @@ Here's example using all the default values as reference.
 >vim
   " These are the default values. Change them as you see fit.
   let g:ts_enable = {
-  \ 'parsers': [],
+  \ 'auto_init': v:false,
   \ 'auto_install': v:false,
   \ 'highlights': v:false,
   \ 'folds': v:false,
-  \ 'indents': v:false,
+  \ 'parser_info': stdpath('config') . '/treesitter-parsers.json',
   \ 'parser_settings': {},
   \}
 <
@@ -34,31 +31,132 @@ table with the settings you want.
 >lua
   -- These are the default values. Change them as you see fit.
   vim.g.ts_enable = {
-    parsers = {},
+    auto_init = false,
     auto_install = false,
     highlights = false,
     folds = false,
-    indents = false,
+    parser_info = vim.fn.stdpath('config') .. '/treesitter-parsers.json',
     parser_settings = {},
   }
 <
-• parsers: list of strings. Treesitter parsers that you want to use. If
-  `auto_install` is enabled and `nvim-treesitter` is installed, the parser
-  will be downloaded if needed.
+• auto_init: Boolean. Generate a "parser info" file if you don't have one.
+  This file will contain the list parsers that can be installed automatically.
 
-• auto_install: boolean. If enabled use `nvim-treesitter` to install a missing
-  parser.
+• auto_install: Boolean. If enabled install a missing parser from the "parser
+  info" file.
 
-• highlights: boolean. If enabled use |vim.treesitter.start()| to enable
+• highlights: Boolean. If enabled use |vim.treesitter.start()| to enable
   treesitter based syntax highlight.
 
-• folds: boolean. If enabled set the option |'foldexpr'| to use treesitter.
+• folds: Boolean. If enabled set the option |'foldexpr'| to use treesitter.
 
-• indents: boolean. If enabled set the option |'indentexpr'| to use an
-  experimental function from `nvim-treesitter`.
+• parser_info: String. Absolute path to the parser info file.
 
 • parser_settings: table. Override global config for a specific parser.
 
+==============================================================================
+Parser info                                            *ts-enable-parser-info*
+
+By default `ts-enable.nvim` will look for a file called
+`treesitter-parsers.json` in Neovim's configuration directory, this should
+have all the data it needs to install a parser. You have the option to create
+this file on your own or have `ts-enable.nvim` generate one for you.
+
+You can find several examples in the snapshots directory[01] of this plugin.
+
+[01]: https://github.com/VonHeikemen/ts-enable.nvim/tree/v2.x/snapshots
+
+Let me show you how it looks like:
+>json
+  {
+    "parsers": {
+      "bash": {
+        "install_info": {
+          "revision": "a06c2e4415e9bc0346c6b86d401879ffb44058f7",
+          "url": "https://github.com/tree-sitter/tree-sitter-bash"
+        },
+        "language_filetypes": [
+          "sh"
+        ],
+        "queries_info": {
+          "copy_from": "parser_queries"
+        }
+      }
+    }
+  }
+<
+Each field in `parsers` should be the name of a parser. Here we define a
+parser with the name `bash`. `install_info` should contain the URL to the git
+repository and the version you want to install. `queries_info` should indicate
+the source of the treesitter queries. In this case the value `parser_queries`
+in `queries_info.copy_from` tells us that the queries will be located in the
+source code of the treesitter parser, and `ts-enable.nvim` will look for them
+in a directory called `queries`.
+
+Usually the name of a parser can be used to determine in which filetype we
+want to enable the parser. Sadly `bash` is not a valid filetype in Neovim.
+Because of this we use the field `language_filetypes`, to define the list of
+filetypes where the parser should be enabled.
+
+Queries can also come from a "fallback repository," a git repository that
+contains many treesitter queries. For example the beloved nvim-treesitter[02]
+plugin. This repository was archived but it still contains queries that were
+made to be used in Neovim, so it is still useful. We can do something like
+this.
+
+[02]: https://github.com/nvim-treesitter/nvim-treesitter
+>json
+  {
+    "meta": {
+      "query_fallback": {
+        "location": "runtime/queries",
+        "revision": "4916d6592ede8c07973490d9322f187e07dfefac",
+        "url": "https://github.com/nvim-treesitter/nvim-treesitter"
+      }
+    },
+    "parsers": {
+      "bash": {
+        "install_info": {
+          "revision": "a06c2e4415e9bc0346c6b86d401879ffb44058f7",
+          "url": "https://github.com/tree-sitter/tree-sitter-bash"
+        },
+        "language_filetypes": [
+          "sh"
+        ],
+        "queries_info": {
+          "copy_from": "query_fallback"
+        }
+      }
+    }
+  }
+<
+In this case `queries_info.copy_from` has the value `query_fallback`. This
+means `ts-enable.nvim` will download the git repository defined as a fallback,
+it'll look inside the `runtime/queries` directory and will copy the query
+files of the `bash` directory.
+
+You could also define a git repository for the parser queries. In case you
+found someone that is willing to maintain Neovim specific queries for a
+specific parser.
+>json
+  {
+    "parsers": {
+      "bash": {
+        "install_info": {
+          "revision": "a06c2e4415e9bc0346c6b86d401879ffb44058f7",
+          "url": "https://github.com/tree-sitter/tree-sitter-bash"
+        },
+        "language_filetypes": [
+          "sh"
+        ],
+        "queries_info": {
+          "url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-bash"
+          "revision": "6e198671f2e8de504c2099f92d52cc2a68f13410"
+        }
+      }
+    }
+  }
+<
 ==============================================================================
 Commands                                                  *ts-enable-commands*
 
@@ -73,7 +171,20 @@ TSEnableExec {method}: ~
         • toggle
         • attach
         • detach
-        • ensure_installed
+
+TSEnableInstall {name} ~
+    Install the parser with {name}. Note that {name} must be a valid entry in
+    the parser info file.
+
+TSEnableUpdate {name} ~
+    Update installed parsers. If {name} is not specified all installed parsers
+    will be updated.
+
+TSEnableRemove {name} ~
+    Remove files of installed parsers. {name} must be an installed parser.
+
+TSEnableSync ~
+    Update parser info file with the state of the installed parsers.
 
 ==============================================================================
 Lua API                                                    *ts-enable-lua-api*
@@ -109,12 +220,6 @@ detach({bufnr}, {filetype}): ~
 setup({opts}): ~
     Set configuration options. This function is here only to comply with
     lazy.nvim options api.
-
-                                                *ts-enable.ensure_installed()*
-
-ensure_installed(): ~
-    Ensure parsers specified in g:ts_enable are installed. Installation is
-    handled by nvim-treesitter.
 
 ==============================================================================
 Support                                                   *ts-enable-donation*

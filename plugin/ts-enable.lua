@@ -36,6 +36,28 @@ vim.api.nvim_create_user_command('TSEnableExec', function(input)
   end
 end, {nargs = 1, bang = true, complete = cmd_completion})
 
+vim.api.nvim_create_user_command('TSEnableInstall', function(input)
+  require('ts-enable.install').install_parser(input.fargs)
+end, {nargs = '+'})
+
+vim.api.nvim_create_user_command('TSEnableUpdate', function(input)
+  require('ts-enable.install').update_parser(input.fargs)
+end, {nargs = '*'})
+
+vim.api.nvim_create_user_command('TSEnableRemove', function(input)
+  require('ts-enable.install').remove_parser(input.fargs)
+end, {nargs = '+'})
+
+vim.api.nvim_create_user_command('TSEnableSync', function()
+  require('ts-enable.install').sync()
+end, {})
+
+vim.api.nvim_create_user_command('TSEnableRestore', function(input)
+  local tse_install = require('ts-enable.install')
+  tse_install.remove_parser(input.args)
+  tse_install.install_parser(input.args)
+end, {nargs = 1})
+
 local group = vim.api.nvim_create_augroup('ts-enable', {clear = true})
 vim.g.ts_enable_attach = 1
 

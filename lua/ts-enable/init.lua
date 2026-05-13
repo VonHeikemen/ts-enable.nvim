@@ -1,17 +1,18 @@
 local M = {}
+local uv = vim.uv or vim.loop
 
-local filetypes = {}
 local global_config = {}
+local global_state = {}
 local initialized = false
-local skip_nvim_ts = false
+local compat
 
 ---@class TSEnable.Config
 ---@inlinedoc
 ---
----Treesitter parsers available in Neovim's runtime
----@field parsers? string[]
+---Generate "parser info" file if missing
+---@field auto_init? boolean
 ---
----Install missing parsers using nvim-treesitter
+---Install missing parsers
 ---@field auto_install? boolean
 ---
 ---Enable vim.treesitter based syntax highlight
@@ -20,62 +21,63 @@ local skip_nvim_ts = false
 ---Set vim.treesitter fold expression
 ---@field folds? boolean
 ---
----Set nvim-treesitter indent expression
----@field indents? boolean
----
 ---Override global config for a specific parser
 ---@field parser_settings? table<string, any>
 
-local function init()
+function M._init()
   if initialized then
     return
   end
 
   initialized = true
   global_config = vim.g.ts_enable or {}
+  compat = require('ts-enable.compat')
 
-  filetypes = vim.iter(global_config.parsers or {})
-    :map(vim.treesitter.language.get_filetypes)
-    :flatten()
-    :fold({}, function(tbl, v)
-      tbl[v] = 0
-      return tbl
-    end)
-
-  -- check if nvim-treesitter is installed without trying to load it
-  local nvim_ts_path = 'lua/nvim-treesitter/init.lua'
-  local nvim_ts = vim.api.nvim_get_runtime_file(nvim_ts_path, false)[1]
-  skip_nvim_ts = nvim_ts == nil
-
-  -- register builtin parsers
-  local queries = 'queries/*/highlights.scm'
-  local builtin = vim.iter(vim.fn.globpath(vim.env.VIMRUNTIME, queries, 0, 1))
-    :map(function(q) return vim.fn.fnamemodify(q, ':h:t') end)
-    :fold({}, function(t, v) t[v] = true; return t end)
-
-  global_config._builtin_parsers = builtin
-end
-
-local function parser_installed(lang)
-  local installed = vim.treesitter.language.add(lang) == true
-
-  if skip_nvim_ts then
-    return installed
+  if global_config.parser_info == nil then
+    global_config.parser_info = compat.joinpath({
+      vim.fn.stdpath('config'),
+      'treesitter-parsers.json'
+    })
   end
 
-  if installed and global_config._builtin_parsers[lang] then
-    -- return false to force nvim-treesitter's install function
+  local State = require('ts-enable.state')
+  if global_config.auto_init then
+    State.copy_snapshot(global_config)
+  end
+
+  global_state = State.create(global_config)
+
+  State.cache.global_state = global_state
+  State.cache.global_config = global_config
+
+  for name, ft in pairs(global_state.language_filetypes) do
+    vim.treesitter.language.register(name, ft)
+  end
+end
+
+local function parser_installed(lang, ft)
+  local available = compat.parser_available(lang)
+
+  if available and global_state.builtin[lang] then
+    if compat.parser_installed(lang) then
+      global_state.builtin[lang] = false
+      return true
+    end
+
+    -- return false to force the install function
     return false
   end
 
-  return installed
+  if not available and compat.parser_installed(lang) then
+    -- parser installed is not compatible with the current nvim version
+    global_state.filetypes[ft] = -2
+    return false
+  end
+
+  return available
 end
 
 local function ts_install(buffer, lang, ft)
-  if skip_nvim_ts then
-    return false
-  end
-
   local parser_config = vim.tbl_get(global_config, 'parser_settings', lang) or false
   local config = parser_config or global_config
 
@@ -83,18 +85,17 @@ local function ts_install(buffer, lang, ft)
     return false
   end
 
-  local ok, nvim_ts = pcall(require, 'nvim-treesitter')
-  if not ok then
-    local msg = '[ts-enable] module "nvim-treesitter" not found'
-    vim.notify_once(msg, vim.log.levels.WARN)
-    return false
+  local available = global_state.filetypes[ft]
+  if available == -2 then
+    global_state.filetypes[ft] = -1
+    return true
   end
 
-  nvim_ts.install(lang):await(function()
-    local installed = vim.treesitter.language.add(lang) == true
-    filetypes[ft] = installed and 1 or -1
+  require('ts-enable.install').install_parser(lang, function()
+    local installed = compat.parser_available(lang)
+    global_state.filetypes[ft] = installed and 1 or -1
 
-    if installed then
+    if installed and vim.api.nvim_buf_is_valid(buffer) then
       M.start(buffer, lang)
     end
   end)
@@ -119,7 +120,7 @@ function M.start(buffer, lang, config)
 
   if config == nil then
     if not initialized then
-      init()
+      M._init()
     end
 
     local parser_config = vim.tbl_get(global_config, 'parser_settings', lang) or false
@@ -158,19 +159,6 @@ function M.start(buffer, lang, config)
       end
     end
   end
-
-  if config.indents then
-    local ok, idt = pcall(ts.query.get, lang, 'indents')
-    if ok and idt then
-      local old_expr = buf.indentexpr
-      local new_expr = "v:lua.require'nvim-treesitter'.indentexpr()"
-
-      if old_expr ~= new_expr then
-        vim.api.nvim_set_option_value('indentexpr', new_expr, {scope = 'local', buf = buffer})
-        buf.ts_enable_bo_indentexpr = type(old_expr) == 'string' and old_expr or false
-      end
-    end
-  end
 end
 
 ---Disable treesitter highlights and restore previous options
@@ -197,10 +185,6 @@ function M.stop(buffer)
 
   if win.ts_enable_wo_foldexpr then
     set_option('foldexpr', win.ts_enable_wo_foldexpr, {scope = 'local', win = winid})
-  end
-
-  if buf.ts_enable_bo_indentexpr then
-    set_option('indentexpr', buf.ts_enable_bo_indentexpr, {scope = 'local', buf = buffer})
   end
 end
 
@@ -234,7 +218,7 @@ end
 ---@param ft? string
 function M.attach(buffer, ft)
   if not initialized then
-    init()
+    M._init()
   end
 
   if buffer == nil then
@@ -245,26 +229,26 @@ function M.attach(buffer, ft)
     ft = vim.bo.filetype
   end
 
-  local available = filetypes[ft]
+  local available = global_state.filetypes[ft]
   if available == nil then
     return
   end
 
-  local lang = vim.treesitter.language.get_lang(ft)
+  local lang = compat.get_lang(ft)
   if lang == nil or lang == '' then
     return
   end
 
-  if available == 0 and parser_installed(lang) then
+  if available == 0 and parser_installed(lang, ft) then
     available = 1
-    filetypes[ft] = 1
+    global_state.filetypes[ft] = 1
   end
 
   if available == 1 then
     M.start(buffer, lang)
     return
   end
-
+  
   if available == -1 then
     return
   end
@@ -273,23 +257,10 @@ function M.attach(buffer, ft)
     return
   end
 
-  if global_config._builtin_parsers[lang] then
-    filetypes[ft] = 1
+  if global_state.builtin[lang] then
+    global_state.filetypes[ft] = 1
     M.start(buffer, lang)
   end
-end
-
----Ensure parsers specified in g:ts_enable are installed. Installation is handled by nvim-treesitter.
-function M.ensure_installed()
-  local ok, nvim_ts = pcall(require, 'nvim-treesitter')
-  if not ok then
-    local msg = '[ts-enable] module "nvim-treesitter" not found'
-    vim.notify(msg, vim.log.levels.WARN)
-    return
-  end
-
-  local config = vim.g.ts_enable or {}
-  nvim_ts.install(config.parsers or {})
 end
 
 return M

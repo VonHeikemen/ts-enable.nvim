@@ -1,37 +1,39 @@
 # TS-enable
 
-This plugin will help you enable features that depend on [treesitter](#what-is-treesitter). It is a complement to [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter).
-
->[!IMPORTANT]
-> nvim-treesiter has been archived. I recommend installing the last commit that was compatible with Neovim v0.11.
-> I will start working on v2 of ts-enable.nvim to remove the dependency on nvim-treesitter.
+This plugin will help you enable features that depend on [treesitter](#what-is-treesitter).
 
 The idea here is to be able to use treesitter by setting a few variables. For example:
 
 ```vim
 " This is vimscript, by the way
 let g:ts_enable = {
-\ 'parsers': ['json', 'gleam', 'python'],
+\ 'auto_init': v:true,
 \ 'auto_install': v:true,
-\ 'highlights': v:true,
-\ 'folds': v:true,
-\ 'indents': v:true,
+\ 'highlights': v:true
 \}
 ```
 
-That's it. `ts-enable.nvim` will [take care of the details](#ts-enablenvim-is-not-strictly-needed), and if you want, it can use `nvim-treesitter` to install any missing treesitter parser on demand.
+That's it. `ts-enable.nvim` will [take care of the details](#ts-enablenvim-is-not-strictly-needed).
 
 If you prefer lua, don't worry. You can use `vim.g.ts_enable` in your configuration. I also added a thing to make it compatible with `lazy.nvim`'s option API.
 
+## Requirements
+
+* Neovim v0.9.5 or greater
+  * v0.12 is recommended
+* git
+* [tree-sitter CLI](https://github.com/tree-sitter/tree-sitter)
+* A C compiler
+  * Needed by the [tree-sitter build](https://tree-sitter.github.io/tree-sitter/cli/build.html) command.
+
 ## Installation
 
-Use your favorite plugin manager to install `ts-enable.nvim` and `nvim-treesitter`.
+Use your favorite plugin manager to install `ts-enable.nvim`.
 
 * vim-plug
 
   ```vim
-  Plug 'VonHeikemen/ts-enable.nvim', { 'branch': 'v1.x' }
-  Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '7caec274fd19c12b55902a5b795100d21531391f' }
+  Plug 'VonHeikemen/ts-enable.nvim', { 'branch': 'v2.x' }
   ```
 
 * mini.deps
@@ -39,11 +41,7 @@ Use your favorite plugin manager to install `ts-enable.nvim` and `nvim-treesitte
   ```lua
   MiniDeps.add({
     source = 'VonHeikemen/ts-enable.nvim',
-    checkout = 'v1.x',
-  })
-  MiniDeps.add({
-    source = 'nvim-treesitter/nvim-treesitter',
-    checkout = '7caec274fd19c12b55902a5b795100d21531391f',
+    checkout = 'v2.x',
   })
   ```
 
@@ -53,11 +51,7 @@ Use your favorite plugin manager to install `ts-enable.nvim` and `nvim-treesitte
   vim.pack.add({
     {
       src = 'https://github.com/VonHeikemen/ts-enable.nvim',
-      version = 'v1.x',
-    },
-    {
-      src = 'https://github.com/nvim-treesitter/nvim-treesitter',
-      version = '7caec274fd19c12b55902a5b795100d21531391f',
+      version = 'v2.x',
     },
   })
   ```
@@ -71,11 +65,11 @@ Here's example using all the default values as reference.
 ```vim
 " These are the default values. Change them as you see fit.
 let g:ts_enable = {
-\ 'parsers': [],
+\ 'auto_init': v:false,
 \ 'auto_install': v:false,
 \ 'highlights': v:false,
 \ 'folds': v:false,
-\ 'indents': v:false,
+\ 'parser_info': stdpath('config') . '/treesitter-parsers.json',
 \ 'parser_settings': {},
 \}
 ```
@@ -85,26 +79,51 @@ In a lua file to create a vim global use `vim.g`. In this case assign a lua tabl
 ```lua
 -- These are the default values. Change them as you see fit.
 vim.g.ts_enable = {
-  parsers = {},
+  auto_init = false,
   auto_install = false,
   highlights = false,
   folds = false,
-  indents = false,
+  parser_info = vim.fn.stdpath('config') .. '/treesitter-parsers.json',
   parser_settings = {},
 }
 ```
 
-* `parsers`: list of strings. Treesitter parsers that you want to use. If `auto_install` is enabled and `nvim-treesitter` is installed, the parser will be downloaded if needed.
+* `auto_init`: Boolean. Generate a "parser info" file if it's missing.
 
-* `auto_install`: boolean. If enabled use `nvim-treesitter` to install a missing parser.
+* `auto_install`: Boolean. If enabled install a missing parser from the "parser info" file.
 
-* `highlights`: boolean. If enabled use `vim.treesitter.start()` to enable treesitter based syntax highlight.
+* `highlights`: Boolean. If enabled use `vim.treesitter.start()` to enable treesitter based syntax highlight.
 
-* `folds`: boolean. If enabled set the option `foldexpr` to use treesitter.
+* `folds`: Boolean. If enabled set the option `foldexpr` to use treesitter.
 
-* `indents`: boolean. If enabled set the option `indentexpr` to use an experimental function from `nvim-treesitter`.
+* `parser_info`: String. Absolute path to the parser info file.
 
-* `parser_settings`: table. Override global config for a specific parser.
+* `parser_settings`: Table. Override global config for a specific parser.
+
+## Usage
+
+For the casual Neovim enjoyer I would recommend this configuration.
+
+```lua
+-- This is lua, by the way
+vim.g.ts_enable = {
+  auto_init = true,
+  auto_install = true,
+  highlights = true,
+}
+```
+
+The `auto_init` option will generate an initial "parser info" file with a list of 26 treesitter parsers. This will be a json file located in Neovim's configuration directory. By default it'll be called `treesitter-parsers.json`. Since `auto_install` is set to `true` the parsers will be installed when needed, meaning that a parser would only be installed if you open a file that needs it. To know more about the parser info file see [the help page](https://github.com/VonHeikemen/ts-enable.nvim/blob/v2.x/doc/ts-enable.txt), or execute the command `:help ts-enable-parser-info` inside Neovim.
+
+You can add or remove parsers from the parser info file if you want. You can find more parsers in the [snapshots directory](https://github.com/VonHeikemen/ts-enable.nvim/tree/v2.x/snapshots) of this plugin. Note that removing a parser from `treesitter-parsers.json` does not delete it, it'll just be ignored.
+
+You can remove all the installed files using the command `:TSEnableRemove {name}`, where `{name}` must be a valid parser.
+
+When it comes to updating parsers I would advice you to adopt the philosophy "if it ain't broke, don't fix it." If things are working just fine, keep it that way. If you are using a stable version of Neovim there is no need to update parsers until the next stable version is released. And even then, installed parsers could still work on that future stable version.
+
+To update a parser you can use the command `:TSEnableUpdate {name}`. If `{name}` is omitted all installed parsers will be updated. Note `treesitter-parsers.json` would not be updated automatically with the new version. That file is yours, you control when it should be updated. That is to ensure you can rollback to a previous version if an update goes wrong.
+
+If you are sure the updated parsers work just fine and want to update `treesitter-parsers.json` to reflect the new state, use the command `:TSEnableSync`.
 
 ## Notes
 
@@ -112,13 +131,13 @@ vim.g.ts_enable = {
 
 Here I'll give you a summary. For more details you can read this: [Treesitter in Neovim](https://vonheikemen.github.io/learn-nvim/feature/treesitter.html).
 
-The main purpose of treesitter is to read the source code of a file and turn that into a data structure. Why? Because it's easier to extract information from structured data than plain text. And what do **we** do with this data thing? Us, casual Neovim users, we do nothing. Neovim mantainers and plugin authors are the ones implementing the features **we** will use.
+The main purpose of treesitter is to read the source code of a file and turn that into a data structure. Why? Because it's easier to extract information from structured data than plain text. And what do **we** do with this data thing? Us, casual Neovim users, we do nothing. Neovim mantainers and plugin authors are the ones who use it to implement the features **we** will interact with.
 
 Language support is where things get interesting. Treesitter is not a miracle silver bullet that supports every programming language. We add support for a language by installing the appropiate "treesitter parser," which is the component that deals with the specific syntax of a language.
 
 ### ts-enable.nvim is not strictly needed
 
-If you don't mind having a bit of code in your personal configuration, you could skip `ts-enable.nvim` entirely. Just install treesitter parsers ahead of time and mantain your own autocommand with the features you want to enable.
+If you don't mind having a bit of code in your personal configuration, you could skip `ts-enable.nvim` entirely. Just install treesitter parsers (and queries) ahead of time and mantain your own autocommand with the features you want to enable.
 
 ```lua
 -- NOTE: It is important that you install treesitter parsers and queries.
@@ -137,34 +156,8 @@ vim.api.nvim_create_autocmd('FileType', {
     -- enable folds
     vim.wo[0][0].foldmethod = 'expr'
     vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-
-    -- enable indents
-    -- NOTE: this feature depends on 'nvim-treesitter'
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end
 })
-```
-
-### Download everything and the kitchen sink
-
-`ts-enable.nvim` can download missing parsers on demand, meaning it'll only try to get the parsers for the files you open. So I don't think is such a terrible idea to list all the available parsers in `nvim-treesitter`. If you happen to find a parser that has performance issues, disable it using the `parser_settings` property.
-
-```lua
-vim.g.ts_enable = {
-  parsers = require('nvim-treesitter').get_available(),
-  auto_install = true,
-  highlights = true,
-}
-```
-
-On vimscript:
-
-```vim
-let g:ts_enable = {
-\ 'parsers': v:lua.require'nvim-treesitter'.get_available(),
-\ 'auto_install': v:true,
-\ 'highlights': v:true,
-\}
 ```
 
 ## Disable a parser
@@ -175,11 +168,10 @@ In the following example all the features are enable on the global config, but f
 
 ```lua
 vim.g.ts_enable = {
-  parsers = require('nvim-treesitter').get_available(),
+  auto_init = true,
   auto_install = true,
   highlights = true,
   folds = true,
-  indents = true,
   parser_settings = {
     zimbu = {}
   },
@@ -192,18 +184,17 @@ If you still want to use one feature of the parser but not others, then enable t
 
 ```lua
 vim.g.ts_enable = {
-  parsers = require('nvim-treesitter').get_available(),
+  auto_init = true,
   auto_install = true,
   highlights = true,
   folds = true,
-  indents = true,
   parser_settings = {
     zimbu = {auto_install = true, highlights = true},
   },
 }
 ```
 
-By the way, zimbu is not an actual parser available in nvim-treesitter. Is just a silly example.
+By the way, zimbu is not an actual parser available, is just a silly example.
 
 ## lazy.nvim configuration?
 
@@ -213,34 +204,16 @@ Sure. You can even use the `opts` table field if you like:
 return {
   'VonHeikemen/ts-enable.nvim',
   lazy = false,
-  dependencies = {
-    {'nvim-treesitter/nvim-treesitter', branch = 'main'},
-  },
   opts = {
-    parsers = {'json', 'gleam', 'python'},
+    auto_init = true,
     auto_install = true,
     highlights = true,
     folds = false,
-    indents = false,
   },
 }
 ```
 
 Fun fact: lazy.nvim's `opts` field will pass the data to `require('ts-enable').setup()` after the plugin is loaded. And this `.setup()` function just creates `vim.g.ts_enable` under the hood.
-
-If you need to use `nvim-treesitter` to get the list of parsers use `opts` as a function.
-
-```lua
-opts = function()
-  return {
-    parsers = require('nvim-treesitter').get_available(),
-    auto_install = true,
-    highlights = true,
-    folds = false,
-    indents = false,
-  }
-end
-```
 
 ## Does it support lazy loading?
 
@@ -256,7 +229,6 @@ To modify a value you have to replace the entire thing.
 
 ```lua
 vim.g.ts_enable = {
-  parsers = {'json', 'gleam', 'python'},
   auto_install = true,
   highlights = true,
 }

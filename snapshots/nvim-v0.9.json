@@ -1,0 +1,295 @@
+{
+  "meta": {
+    "query_fallback": {
+      "location": "queries",
+      "revision": "42fc28ba918343ebfd5565147a42a26580579482",
+      "url": "https://github.com/nvim-treesitter/nvim-treesitter"
+    }
+  },
+  "parsers": {
+    "bash": {
+      "install_info": {
+        "revision": "0c46d792d54c536be5ff7eb18eb95c70fccdb232",
+        "url": "https://github.com/tree-sitter/tree-sitter-bash"
+      },
+      "language_filetypes": [
+        "sh"
+      ],
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "c": {
+      "install_info": {
+        "revision": "2a265d69a4caf57108a73ad2ed1e6922dd2f998c",
+        "url": "https://github.com/tree-sitter/tree-sitter-c"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "c_sharp": {
+      "install_info": {
+        "revision": "b5eb5742f6a7e9438bee22ce8026d6b927be2cd7",
+        "url": "https://github.com/tree-sitter/tree-sitter-c-sharp"
+      },
+      "language_filetypes": [
+        "cs",
+        "csharp"
+      ],
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "cpp": {
+      "install_info": {
+        "revision": "e5cea0ec884c5c3d2d1e41a741a66ce13da4d945",
+        "url": "https://github.com/tree-sitter/tree-sitter-cpp"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "c"
+      ]
+    },
+    "css": {
+      "install_info": {
+        "revision": "6e327db434fec0ee90f006697782e43ec855adf5",
+        "url": "https://github.com/tree-sitter/tree-sitter-css"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ecma": {
+      "install_info": {
+        "skip": true
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "go": {
+      "install_info": {
+        "revision": "5e73f476efafe5c768eda19bbe877f188ded6144",
+        "url": "https://github.com/tree-sitter/tree-sitter-go"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gomod": {
+      "install_info": {
+        "revision": "6efb59652d30e0e9cd5f3b3a669afd6f1a926d3c",
+        "url": "https://github.com/camdencheek/tree-sitter-go-mod"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gosum": {
+      "install_info": {
+        "revision": "e2ac513b2240c7ff1069ae33b2df29ce90777c11",
+        "url": "https://github.com/amaanq/tree-sitter-go-sum"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "html": {
+      "install_info": {
+        "revision": "cbb91a0ff3621245e890d1c50cc811bffb77a26b",
+        "url": "https://github.com/tree-sitter/tree-sitter-html"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "html_tags"
+      ]
+    },
+    "html_tags": {
+      "install_info": {
+        "skip": true
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "java": {
+      "install_info": {
+        "revision": "a7db5227ec40fcfe94489559d8c9bc7c8181e25a",
+        "url": "https://github.com/tree-sitter/tree-sitter-java"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "javascript": {
+      "install_info": {
+        "revision": "6fbef40512dcd9f0a61ce03a4c9ae7597b36ab5c",
+        "url": "https://github.com/tree-sitter/tree-sitter-javascript"
+      },
+      "language_filetypes": [
+        "javascriptreact",
+        "ecma",
+        "ecmascript",
+        "jsx",
+        "js"
+      ],
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "ecma",
+        "jsx"
+      ]
+    },
+    "jsx": {
+      "install_info": {
+        "skip": true
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "lua": {
+      "install_info": {
+        "revision": "db16e76558122e834ee214c8dc755b4a3edc82a9",
+        "url": "https://github.com/MunifTanjim/tree-sitter-lua"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "php": {
+      "install_info": {
+        "location": "php",
+        "revision": "576a56fa7f8b68c91524cdd211eb2ffc43e7bb11",
+        "url": "https://github.com/tree-sitter/tree-sitter-php"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "php_only"
+      ]
+    },
+    "php_only": {
+      "install_info": {
+        "location": "php_only",
+        "revision": "576a56fa7f8b68c91524cdd211eb2ffc43e7bb11",
+        "url": "https://github.com/tree-sitter/tree-sitter-php"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "powershell": {
+      "install_info": {
+        "revision": "66d5e61126989c0aca57ff77d19b2064919b51e1",
+        "url": "https://github.com/airbus-cert/tree-sitter-powershell"
+      },
+      "language_filetypes": [
+        "ps1"
+      ],
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "python": {
+      "install_info": {
+        "revision": "710796b8b877a970297106e5bbc8e2afa47f86ec",
+        "url": "https://github.com/tree-sitter/tree-sitter-python"
+      },
+      "language_filetypes": [
+        "py",
+        "gyp"
+      ],
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ruby": {
+      "install_info": {
+        "revision": "89bd7a8e5450cb6a942418a619d30469f259e5d6",
+        "url": "https://github.com/tree-sitter/tree-sitter-ruby"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "rust": {
+      "install_info": {
+        "revision": "e86119bdb4968b9799f6a014ca2401c178d54b5f",
+        "url": "https://github.com/tree-sitter/tree-sitter-rust"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "sql": {
+      "install_info": {
+        "revision": "b9d109588d5b5ed986c857464830c2f0bef53f18",
+        "url": "https://github.com/derekstride/tree-sitter-sql"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "tsx": {
+      "install_info": {
+        "location": "tsx",
+        "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
+        "url": "https://github.com/tree-sitter/tree-sitter-typescript"
+      },
+      "language_filetypes": [
+        "typescriptreact",
+        "typescript.tsx"
+      ],
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "ecma",
+        "jsx",
+        "typescript"
+      ]
+    },
+    "typescript": {
+      "install_info": {
+        "location": "typescript",
+        "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
+        "url": "https://github.com/tree-sitter/tree-sitter-typescript"
+      },
+      "language_filetypes": [
+        "ts"
+      ],
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "ecma"
+      ]
+    },
+    "vim": {
+      "install_info": {
+        "revision": "11b688a1f0e97c0c4e3dbabf4a38016335f4d237",
+        "url": "https://github.com/neovim/tree-sitter-vim"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "vimdoc": {
+      "install_info": {
+        "revision": "2694c3d27e2ca98a0ccde72f33887394300d524e",
+        "url": "https://github.com/neovim/tree-sitter-vimdoc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    }
+  }
+}

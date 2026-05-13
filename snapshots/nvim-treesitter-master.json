@@ -1,0 +1,3028 @@
+{
+  "meta": {
+    "query_fallback": {
+      "location": "queries",
+      "revision": "42fc28ba918343ebfd5565147a42a26580579482",
+      "url": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "note": "Parsers for Neovim v0.9 and v0.10"
+  },
+  "parsers": {
+    "ada": {
+      "install_info": {
+        "revision": "e8e2515465cc2d7c444498e68bdb9f1d86767f95",
+        "url": "https://github.com/briot/tree-sitter-ada"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "agda": {
+      "install_info": {
+        "revision": "b9b32fa042c2952a7bfca86847ea325e44ccc897",
+        "url": "https://github.com/tree-sitter/tree-sitter-agda"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "angular": {
+      "install_info": {
+        "revision": "843525141575e397541e119698f0532755e959f6",
+        "url": "https://github.com/dlvandenberg/tree-sitter-angular"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "html",
+        "html_tags"
+      ]
+    },
+    "apex": {
+      "install_info": {
+        "location": "apex",
+        "revision": "3597575a429766dd7ecce9f5bb97f6fec4419d5d",
+        "url": "https://github.com/aheber/tree-sitter-sfapex"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "arduino": {
+      "install_info": {
+        "revision": "017696bdf47ca2b10948c5a511f9ab387722d0f3",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-arduino"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "cpp"
+      ]
+    },
+    "asm": {
+      "install_info": {
+        "revision": "04962e15f6b464cf1d75eada59506dc25090e186",
+        "url": "https://github.com/RubixDev/tree-sitter-asm"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "astro": {
+      "install_info": {
+        "revision": "0ad33e32ae9726e151d16ca20ba3e507ff65e01f",
+        "url": "https://github.com/virchau13/tree-sitter-astro"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "html",
+        "html_tags"
+      ]
+    },
+    "authzed": {
+      "install_info": {
+        "revision": "1dec7e1af96c56924e3322cd85fdce15d0a31d00",
+        "url": "https://github.com/mleonidas/tree-sitter-authzed"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "awk": {
+      "install_info": {
+        "revision": "34bbdc7cce8e803096f47b625979e34c1be38127",
+        "url": "https://github.com/Beaglefoot/tree-sitter-awk"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "bash": {
+      "install_info": {
+        "revision": "0c46d792d54c536be5ff7eb18eb95c70fccdb232",
+        "url": "https://github.com/tree-sitter/tree-sitter-bash"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "bass": {
+      "install_info": {
+        "revision": "28dc7059722be090d04cd751aed915b2fee2f89a",
+        "url": "https://github.com/vito/tree-sitter-bass"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "beancount": {
+      "install_info": {
+        "revision": "9bc460a05b5f096d69568b5fb36105032ff4ff97",
+        "url": "https://github.com/polarmutex/tree-sitter-beancount"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "bibtex": {
+      "install_info": {
+        "revision": "ccfd77db0ed799b6c22c214fe9d2937f47bc8b34",
+        "url": "https://github.com/latex-lsp/tree-sitter-bibtex"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "bicep": {
+      "install_info": {
+        "revision": "bff59884307c0ab009bd5e81afd9324b46a6c0f9",
+        "url": "https://github.com/amaanq/tree-sitter-bicep"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "bitbake": {
+      "install_info": {
+        "revision": "a5d04fdb5a69a02b8fa8eb5525a60dfb5309b73b",
+        "url": "https://github.com/amaanq/tree-sitter-bitbake"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "blade": {
+      "install_info": {
+        "revision": "bcdc4b01827cac21205f7453e9be02f906943128",
+        "url": "https://github.com/EmranMR/tree-sitter-blade"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "blueprint": {
+      "install_info": {
+        "revision": "60ba73739c6083c693d86a1a7cf039c07eb4ed59",
+        "url": "https://gitlab.com/gabmus/tree-sitter-blueprint.git"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "bp": {
+      "install_info": {
+        "revision": "16c43068ec30828c5aed11e87262c56f36782595",
+        "url": "https://github.com/ambroisie/tree-sitter-bp"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "brightscript": {
+      "install_info": {
+        "revision": "48ce1687125c6dfefcc7a1bef19fa0f0f00426cc",
+        "url": "https://github.com/ajdelcimmuto/tree-sitter-brightscript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "c": {
+      "install_info": {
+        "revision": "2a265d69a4caf57108a73ad2ed1e6922dd2f998c",
+        "url": "https://github.com/tree-sitter/tree-sitter-c"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "c_sharp": {
+      "install_info": {
+        "revision": "b5eb5742f6a7e9438bee22ce8026d6b927be2cd7",
+        "url": "https://github.com/tree-sitter/tree-sitter-c-sharp"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "caddy": {
+      "install_info": {
+        "revision": "2686186edb61be47960431c93a204fb249681360",
+        "url": "https://github.com/opa-oz/tree-sitter-caddy"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "cairo": {
+      "install_info": {
+        "revision": "6238f609bea233040fe927858156dee5515a0745",
+        "url": "https://github.com/amaanq/tree-sitter-cairo"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "capnp": {
+      "install_info": {
+        "revision": "7b0883c03e5edd34ef7bcf703194204299d7099f",
+        "url": "https://github.com/amaanq/tree-sitter-capnp"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "chatito": {
+      "install_info": {
+        "revision": "b4cbe9ab7672d5106e9550d8413835395a1be362",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-chatito"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "circom": {
+      "install_info": {
+        "revision": "02150524228b1e6afef96949f2d6b7cc0aaf999e",
+        "url": "https://github.com/Decurity/tree-sitter-circom"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "clojure": {
+      "install_info": {
+        "revision": "f4236d4da8aa92bc105d9c118746474c608e6af7",
+        "url": "https://github.com/sogaiu/tree-sitter-clojure"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "cmake": {
+      "install_info": {
+        "revision": "fe48221d4d9842d916d66b5e71ab3c6307ec28b3",
+        "url": "https://github.com/uyha/tree-sitter-cmake"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "comment": {
+      "install_info": {
+        "revision": "3555706cef8b98d3e4c7379d7260548ff03ad363",
+        "url": "https://github.com/stsewd/tree-sitter-comment"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "commonlisp": {
+      "install_info": {
+        "revision": "32323509b3d9fe96607d151c2da2c9009eb13a2f",
+        "url": "https://github.com/theHamsta/tree-sitter-commonlisp"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "cooklang": {
+      "install_info": {
+        "revision": "4ebe237c1cf64cf3826fc249e9ec0988fe07e58e",
+        "url": "https://github.com/addcninblue/tree-sitter-cooklang"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "corn": {
+      "install_info": {
+        "revision": "464654742cbfd3a3de560aba120998f1d5dfa844",
+        "url": "https://github.com/jakestanger/tree-sitter-corn"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "cpon": {
+      "install_info": {
+        "revision": "594289eadfec719198e560f9d7fd243c4db678d5",
+        "url": "https://github.com/amaanq/tree-sitter-cpon"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "cpp": {
+      "install_info": {
+        "revision": "e5cea0ec884c5c3d2d1e41a741a66ce13da4d945",
+        "url": "https://github.com/tree-sitter/tree-sitter-cpp"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "c"
+      ]
+    },
+    "css": {
+      "install_info": {
+        "revision": "6e327db434fec0ee90f006697782e43ec855adf5",
+        "url": "https://github.com/tree-sitter/tree-sitter-css"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "csv": {
+      "install_info": {
+        "location": "csv",
+        "revision": "7eb7297823605392d2bbcc4c09b1cd18d6fa9529",
+        "url": "https://github.com/amaanq/tree-sitter-csv"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "tsv"
+      ]
+    },
+    "cuda": {
+      "install_info": {
+        "revision": "014628ae8d2df391b88ddb9fa0260fd97f770829",
+        "url": "https://github.com/theHamsta/tree-sitter-cuda"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "cpp"
+      ]
+    },
+    "cue": {
+      "install_info": {
+        "revision": "770737bcff2c4aa3f624d439e32b07dbb07102d3",
+        "url": "https://github.com/eonpatapon/tree-sitter-cue"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "cylc": {
+      "install_info": {
+        "revision": "8b895c278f98d05e67997f5e3a43fb5531933023",
+        "url": "https://github.com/elliotfontaine/tree-sitter-cylc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "d": {
+      "install_info": {
+        "revision": "45e5f1e9d6de2c68591bc8e5ec662cf18e950b4a",
+        "url": "https://github.com/gdamore/tree-sitter-d"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "dart": {
+      "install_info": {
+        "revision": "80e23c07b64494f7e21090bb3450223ef0b192f4",
+        "url": "https://github.com/UserNobody14/tree-sitter-dart"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "desktop": {
+      "install_info": {
+        "revision": "6d66eea37afa1d6bc1e25ef457113743df42416d",
+        "url": "https://github.com/ValdezFOmar/tree-sitter-desktop"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "devicetree": {
+      "install_info": {
+        "revision": "16f640f3c59117c9e749d581634afdb00e004f4c",
+        "url": "https://github.com/joelspadin/tree-sitter-devicetree"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "dhall": {
+      "install_info": {
+        "revision": "4a6c08abfb54827db4e722d6cdca81b093898988",
+        "url": "https://github.com/jbellerb/tree-sitter-dhall"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "diff": {
+      "install_info": {
+        "revision": "e42b8def4f75633568f1aecfe01817bf15164928",
+        "url": "https://github.com/the-mikedavis/tree-sitter-diff"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "disassembly": {
+      "install_info": {
+        "revision": "0229c0211dba909c5d45129ac784a3f4d49c243a",
+        "url": "https://github.com/ColinKennedy/tree-sitter-disassembly"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "djot": {
+      "install_info": {
+        "revision": "eb31845d59b9ee8c1b2098e78e9ca72004bd1579",
+        "url": "https://github.com/treeman/tree-sitter-djot"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "dockerfile": {
+      "install_info": {
+        "revision": "971acdd908568b4531b0ba28a445bf0bb720aba5",
+        "url": "https://github.com/camdencheek/tree-sitter-dockerfile"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "dot": {
+      "install_info": {
+        "revision": "9ab85550c896d8b294d9b9ca1e30698736f08cea",
+        "url": "https://github.com/rydesun/tree-sitter-dot"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "doxygen": {
+      "install_info": {
+        "revision": "ccd998f378c3f9345ea4eeb223f56d7b84d16687",
+        "url": "https://github.com/amaanq/tree-sitter-doxygen"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "dtd": {
+      "install_info": {
+        "location": "dtd",
+        "revision": "0d9a8099c963ed53e183425c1b47fa2622c8eaf7",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-xml"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "earthfile": {
+      "install_info": {
+        "revision": "ae378d9d1306e9a967698516041f6f8803db5592",
+        "url": "https://github.com/glehmann/tree-sitter-earthfile"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ebnf": {
+      "install_info": {
+        "location": "crates/tree-sitter-ebnf",
+        "revision": "8e635b0b723c620774dfb8abf382a7f531894b40",
+        "url": "https://github.com/RubixDev/ebnf"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ecma": {
+      "install_info": {
+        "skip": true
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "editorconfig": {
+      "install_info": {
+        "revision": "3f2b371537355f6e53cc3af37f79ba450efb5132",
+        "url": "https://github.com/ValdezFOmar/tree-sitter-editorconfig"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "eds": {
+      "install_info": {
+        "revision": "26d529e6cfecde391a03c21d1474eb51e0285805",
+        "url": "https://github.com/uyha/tree-sitter-eds"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "eex": {
+      "install_info": {
+        "revision": "f742f2fe327463335e8671a87c0b9b396905d1d1",
+        "url": "https://github.com/connorlay/tree-sitter-eex"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "elixir": {
+      "install_info": {
+        "revision": "450a8194f5a66561135962cfc8d7545a27b61c4c",
+        "url": "https://github.com/elixir-lang/tree-sitter-elixir"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "elm": {
+      "install_info": {
+        "revision": "e34bdc5c512918628b05b48e633f711123204e45",
+        "url": "https://github.com/elm-tooling/tree-sitter-elm"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "elsa": {
+      "install_info": {
+        "revision": "0a66b2b3f3c1915e67ad2ef9f7dbd2a84820d9d7",
+        "url": "https://github.com/glapa-grossklag/tree-sitter-elsa"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "elvish": {
+      "install_info": {
+        "revision": "5e7210d945425b77f82cbaebc5af4dd3e1ad40f5",
+        "url": "https://github.com/elves/tree-sitter-elvish"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "embedded_template": {
+      "install_info": {
+        "revision": "8495d106154741e6d35d37064f864758ece75de6",
+        "url": "https://github.com/tree-sitter/tree-sitter-embedded-template"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "enforce": {
+      "install_info": {
+        "revision": "aedd0bbab9dcc9caec9cc4e32bd303e86509522b",
+        "url": "https://github.com/simonvic/tree-sitter-enforce"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "erlang": {
+      "install_info": {
+        "revision": "416ca60d7d2a824c0d346163541153e230710780",
+        "url": "https://github.com/WhatsApp/tree-sitter-erlang"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "facility": {
+      "install_info": {
+        "revision": "e4bfd3e960de9f4b4648acb1c92e9b95b47d8cfb",
+        "url": "https://github.com/FacilityApi/tree-sitter-facility"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "faust": {
+      "install_info": {
+        "revision": "f3b9274514b5f9bf6b0dd4a01c30f9cc15c58bc4",
+        "url": "https://github.com/khiner/tree-sitter-faust"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "fennel": {
+      "install_info": {
+        "revision": "cfbfa478dc2dbef267ee94ae4323d9c886f45e94",
+        "url": "https://github.com/alexmozaidze/tree-sitter-fennel"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "fidl": {
+      "install_info": {
+        "revision": "0a8910f293268e27ff554357c229ba172b0eaed2",
+        "url": "https://github.com/google/tree-sitter-fidl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "firrtl": {
+      "install_info": {
+        "revision": "8503d3a0fe0f9e427863cb0055699ff2d29ae5f5",
+        "url": "https://github.com/amaanq/tree-sitter-firrtl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "fish": {
+      "install_info": {
+        "revision": "70640c0696abde32622afc43291a385681afbd32",
+        "url": "https://github.com/ram02z/tree-sitter-fish"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "foam": {
+      "install_info": {
+        "revision": "f08bb76892b93e5b23c45ac3bd6b1eea5df323cc",
+        "url": "https://github.com/FoamScience/tree-sitter-foam"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "forth": {
+      "install_info": {
+        "revision": "90189238385cf636b9ee99ce548b9e5b5e569d48",
+        "url": "https://github.com/AlexanderBrevig/tree-sitter-forth"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "fortran": {
+      "install_info": {
+        "revision": "d738334e4a21866a1ab81fb3f27f9b0b2ad2e515",
+        "url": "https://github.com/stadelmanma/tree-sitter-fortran"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "fsh": {
+      "install_info": {
+        "revision": "fad2e175099a45efbc98f000cc196d3674cc45e0",
+        "url": "https://github.com/mgramigna/tree-sitter-fsh"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "fsharp": {
+      "install_info": {
+        "location": "fsharp",
+        "revision": "02929f084726db969e5b916d144436f248146824",
+        "url": "https://github.com/ionide/tree-sitter-fsharp"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "func": {
+      "install_info": {
+        "revision": "f780ca55e65e7d7360d0229331763e16c452fc98",
+        "url": "https://github.com/amaanq/tree-sitter-func"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "fusion": {
+      "install_info": {
+        "revision": "19db2f47ba4c3a0f6238d4ae0e2abfca16e61dd6",
+        "url": "https://gitlab.com/jirgn/tree-sitter-fusion.git"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gap": {
+      "install_info": {
+        "revision": "7db79590d2f8b0e0246008ecfd569b4bfca587a9",
+        "url": "https://github.com/gap-system/tree-sitter-gap"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gaptst": {
+      "install_info": {
+        "revision": "69086d7627c03e1f4baf766bcef14c60d9e92331",
+        "url": "https://github.com/gap-system/tree-sitter-gaptst"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "gap"
+      ]
+    },
+    "gdscript": {
+      "install_info": {
+        "revision": "48b49330888a4669b48619b211cc8da573827725",
+        "url": "https://github.com/PrestonKnopp/tree-sitter-gdscript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gdshader": {
+      "install_info": {
+        "revision": "ffd9f958df13cae04593781d7d2562295a872455",
+        "url": "https://github.com/GodOfAvacyn/tree-sitter-gdshader"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "git_config": {
+      "install_info": {
+        "revision": "9c2a1b7894e6d9eedfe99805b829b4ecd871375e",
+        "url": "https://github.com/the-mikedavis/tree-sitter-git-config"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "git_rebase": {
+      "install_info": {
+        "revision": "bff4b66b44b020d918d67e2828eada1974a966aa",
+        "url": "https://github.com/the-mikedavis/tree-sitter-git-rebase"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gitattributes": {
+      "install_info": {
+        "revision": "5425944fd61bf2b3bad2c17c2dc9f53172b0f01d",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-gitattributes"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gitcommit": {
+      "install_info": {
+        "revision": "a716678c0f00645fed1e6f1d0eb221481dbd6f6d",
+        "url": "https://github.com/gbprod/tree-sitter-gitcommit"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gitignore": {
+      "install_info": {
+        "revision": "f4685bf11ac466dd278449bcfe5fd014e94aa504",
+        "url": "https://github.com/shunsambongi/tree-sitter-gitignore"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gleam": {
+      "install_info": {
+        "revision": "99ec4101504452c488b7c835fb65cfef75b090b7",
+        "url": "https://github.com/gleam-lang/tree-sitter-gleam"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "glimmer": {
+      "install_info": {
+        "revision": "da605af8c5999b43e6839b575eae5e6cafabb06f",
+        "url": "https://github.com/ember-tooling/tree-sitter-glimmer"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "glimmer_javascript": {
+      "install_info": {
+        "revision": "5cc865a2a0a77cbfaf5062c8fcf2a9919bd54f87",
+        "url": "https://github.com/NullVoxPopuli/tree-sitter-glimmer-javascript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "ecma"
+      ]
+    },
+    "glimmer_typescript": {
+      "install_info": {
+        "revision": "12d98944c1d5077b957cbdb90d663a7c4d50118c",
+        "url": "https://github.com/NullVoxPopuli/tree-sitter-glimmer-typescript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "typescript"
+      ]
+    },
+    "glsl": {
+      "install_info": {
+        "revision": "24a6c8ef698e4480fecf8340d771fbcb5de8fbb4",
+        "url": "https://github.com/theHamsta/tree-sitter-glsl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "c"
+      ]
+    },
+    "gn": {
+      "install_info": {
+        "revision": "bc06955bc1e3c9ff8e9b2b2a55b38b94da923c05",
+        "url": "https://github.com/amaanq/tree-sitter-gn"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gnuplot": {
+      "install_info": {
+        "revision": "8923c1e38b9634a688a6c0dce7c18c8ffb823e79",
+        "url": "https://github.com/dpezto/tree-sitter-gnuplot"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "go": {
+      "install_info": {
+        "revision": "5e73f476efafe5c768eda19bbe877f188ded6144",
+        "url": "https://github.com/tree-sitter/tree-sitter-go"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "goctl": {
+      "install_info": {
+        "revision": "49c43532689fe1f53e8b9e009d0521cab02c432b",
+        "url": "https://github.com/chaozwn/tree-sitter-goctl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "godot_resource": {
+      "install_info": {
+        "revision": "91c55fdf325a832659e59cdf4a02bfe8a423f14c",
+        "url": "https://github.com/PrestonKnopp/tree-sitter-godot-resource"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gomod": {
+      "install_info": {
+        "revision": "6efb59652d30e0e9cd5f3b3a669afd6f1a926d3c",
+        "url": "https://github.com/camdencheek/tree-sitter-go-mod"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gosum": {
+      "install_info": {
+        "revision": "e2ac513b2240c7ff1069ae33b2df29ce90777c11",
+        "url": "https://github.com/amaanq/tree-sitter-go-sum"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gotmpl": {
+      "install_info": {
+        "revision": "5f19a36bb1eebb30454e277b222b278ceafed0dd",
+        "url": "https://github.com/ngalaiko/tree-sitter-go-template"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gowork": {
+      "install_info": {
+        "revision": "949a8a470559543857a62102c84700d291fc984c",
+        "url": "https://github.com/omertuc/tree-sitter-go-work"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gpg": {
+      "install_info": {
+        "revision": "63e80cfe1302da9f9c7ee8d9df295f47d7d181bf",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-gpg-config"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "graphql": {
+      "install_info": {
+        "revision": "5e66e961eee421786bdda8495ed1db045e06b5fe",
+        "url": "https://github.com/bkegley/tree-sitter-graphql"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gren": {
+      "install_info": {
+        "revision": "06389ece5bc7344ed3931dc516bb609d8864dd2a",
+        "url": "https://github.com/MaeBrooks/tree-sitter-gren"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "groovy": {
+      "install_info": {
+        "revision": "86911590a8e46d71301c66468e5620d9faa5b6af",
+        "url": "https://github.com/murtaza64/tree-sitter-groovy"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "gstlaunch": {
+      "install_info": {
+        "revision": "549aef253fd38a53995cda1bf55c501174372bf7",
+        "url": "https://github.com/theHamsta/tree-sitter-gstlaunch"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "hack": {
+      "install_info": {
+        "revision": "bc5b3a10d6d27e8220a113a9a7fe9bec0a1574b0",
+        "url": "https://github.com/slackhq/tree-sitter-hack"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "hare": {
+      "install_info": {
+        "revision": "4af5d82cf9ec39f67cb1db5b7a9269d337406592",
+        "url": "https://github.com/amaanq/tree-sitter-hare"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "haskell": {
+      "install_info": {
+        "revision": "0975ef72fc3c47b530309ca93937d7d143523628",
+        "url": "https://github.com/tree-sitter/tree-sitter-haskell"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "haskell_persistent": {
+      "install_info": {
+        "revision": "577259b4068b2c281c9ebf94c109bd50a74d5857",
+        "url": "https://github.com/MercuryTechnologies/tree-sitter-haskell-persistent"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "hcl": {
+      "install_info": {
+        "revision": "de10d494dbd6b71cdf07a678fecbf404dbfe4398",
+        "url": "https://github.com/MichaHoffmann/tree-sitter-hcl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "heex": {
+      "install_info": {
+        "revision": "008626a3fad379d17c81d5ed576edd9bd7a4fbf7",
+        "url": "https://github.com/connorlay/tree-sitter-heex"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "helm": {
+      "install_info": {
+        "location": "dialects/helm",
+        "revision": "5f19a36bb1eebb30454e277b222b278ceafed0dd",
+        "url": "https://github.com/ngalaiko/tree-sitter-go-template"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "hjson": {
+      "install_info": {
+        "revision": "02fa3b79b3ff9a296066da6277adfc3f26cbc9e0",
+        "url": "https://github.com/winston0410/tree-sitter-hjson"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "json"
+      ]
+    },
+    "hlsl": {
+      "install_info": {
+        "revision": "bab9111922d53d43668fabb61869bec51bbcb915",
+        "url": "https://github.com/theHamsta/tree-sitter-hlsl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "cpp"
+      ]
+    },
+    "hlsplaylist": {
+      "install_info": {
+        "revision": "3bfda9271e3adb08d35f47a2102fe957009e1c55",
+        "url": "https://github.com/Freed-Wu/tree-sitter-hlsplaylist"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "hocon": {
+      "install_info": {
+        "revision": "c390f10519ae69fdb03b3e5764f5592fb6924bcc",
+        "url": "https://github.com/antosha417/tree-sitter-hocon"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "hoon": {
+      "install_info": {
+        "revision": "1545137aadcc63660c47db9ad98d02fa602655d0",
+        "url": "https://github.com/urbit-pilled/tree-sitter-hoon"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "html": {
+      "install_info": {
+        "revision": "cbb91a0ff3621245e890d1c50cc811bffb77a26b",
+        "url": "https://github.com/tree-sitter/tree-sitter-html"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "html_tags"
+      ]
+    },
+    "html_tags": {
+      "install_info": {
+        "skip": true
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "htmldjango": {
+      "install_info": {
+        "revision": "ea71012d3fe14dd0b69f36be4f96bdfe9155ebae",
+        "url": "https://github.com/interdependence/tree-sitter-htmldjango"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "http": {
+      "install_info": {
+        "revision": "db8b4398de90b6d0b6c780aba96aaa2cd8e9202c",
+        "url": "https://github.com/rest-nvim/tree-sitter-http"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "hurl": {
+      "install_info": {
+        "revision": "ff07a42d9ec95443b5c1b57ed793414bf7b79be5",
+        "url": "https://github.com/pfeiferj/tree-sitter-hurl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "hyprlang": {
+      "install_info": {
+        "revision": "d719158abe537b1916daaea6fa03287089f0b601",
+        "url": "https://github.com/luckasRanarison/tree-sitter-hyprlang"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "idl": {
+      "install_info": {
+        "revision": "b14e7971cfbd64fa0ebcdeaa4dfbb3cb0bfabd7c",
+        "url": "https://github.com/cathaysia/tree-sitter-idl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "idris": {
+      "install_info": {
+        "revision": "c56a25cf57c68ff929356db25505c1cc4c7820f6",
+        "url": "https://github.com/kayhide/tree-sitter-idris"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ini": {
+      "install_info": {
+        "revision": "32b31863f222bf22eb43b07d4e9be8017e36fb31",
+        "url": "https://github.com/justinmk/tree-sitter-ini"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "inko": {
+      "install_info": {
+        "revision": "f58a87ac4dc6a7955c64c9e4408fbd693e804686",
+        "url": "https://github.com/inko-lang/tree-sitter-inko"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ipkg": {
+      "install_info": {
+        "revision": "8d3e9782f2d091d0cd39c13bfb3068db0c675960",
+        "url": "https://github.com/srghma/tree-sitter-ipkg"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ispc": {
+      "install_info": {
+        "revision": "9b2f9aec2106b94b4e099fe75e73ebd8ae707c04",
+        "url": "https://github.com/fab4100/tree-sitter-ispc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "c"
+      ]
+    },
+    "janet_simple": {
+      "install_info": {
+        "revision": "b08b402207fba0037d5152ce7c521351147f4388",
+        "url": "https://github.com/sogaiu/tree-sitter-janet-simple"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "java": {
+      "install_info": {
+        "revision": "a7db5227ec40fcfe94489559d8c9bc7c8181e25a",
+        "url": "https://github.com/tree-sitter/tree-sitter-java"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "javadoc": {
+      "install_info": {
+        "revision": "330cc9cb4f33545f7bfce6c3b6aa77fe6db1b537",
+        "url": "https://github.com/rmuir/tree-sitter-javadoc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "javascript": {
+      "install_info": {
+        "revision": "6fbef40512dcd9f0a61ce03a4c9ae7597b36ab5c",
+        "url": "https://github.com/tree-sitter/tree-sitter-javascript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "ecma",
+        "jsx"
+      ]
+    },
+    "jinja": {
+      "install_info": {
+        "location": "tree-sitter-jinja",
+        "revision": "9af6ce9380fabd3d5b19d0254b8c8936e879c471",
+        "url": "https://github.com/cathaysia/tree-sitter-jinja"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "jinja_inline"
+      ]
+    },
+    "jinja_inline": {
+      "install_info": {
+        "location": "tree-sitter-jinja_inline",
+        "revision": "9af6ce9380fabd3d5b19d0254b8c8936e879c471",
+        "url": "https://github.com/cathaysia/tree-sitter-jinja"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "jq": {
+      "install_info": {
+        "revision": "13990f530e8e6709b7978503da9bc8701d366791",
+        "url": "https://github.com/flurie/tree-sitter-jq"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "jsdoc": {
+      "install_info": {
+        "revision": "a417db5dbdd869fccb6a8b75ec04459e1d4ccd2c",
+        "url": "https://github.com/tree-sitter/tree-sitter-jsdoc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "json": {
+      "install_info": {
+        "revision": "46aa487b3ade14b7b05ef92507fdaa3915a662a3",
+        "url": "https://github.com/tree-sitter/tree-sitter-json"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "json5": {
+      "install_info": {
+        "revision": "ab0ba8229d639ec4f3fa5f674c9133477f4b77bd",
+        "url": "https://github.com/Joakker/tree-sitter-json5"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "jsonc": {
+      "install_info": {
+        "revision": "02b01653c8a1c198ae7287d566efa86a135b30d5",
+        "url": "https://gitlab.com/WhyNotHugo/tree-sitter-jsonc.git"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "jsonnet": {
+      "install_info": {
+        "revision": "ddd075f1939aed8147b7aa67f042eda3fce22790",
+        "url": "https://github.com/sourcegraph/tree-sitter-jsonnet"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "jsx": {
+      "install_info": {
+        "skip": true
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "julia": {
+      "install_info": {
+        "revision": "12a3aede757bc7fbdfb1909507c7a6fddd31df37",
+        "url": "https://github.com/tree-sitter/tree-sitter-julia"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "just": {
+      "install_info": {
+        "revision": "bb0c898a80644de438e6efe5d88d30bf092935cd",
+        "url": "https://github.com/IndianBoy42/tree-sitter-just"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "kcl": {
+      "install_info": {
+        "revision": "b0b2eb38009e04035a6e266c7e11e541f3caab7c",
+        "url": "https://github.com/kcl-lang/tree-sitter-kcl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "kconfig": {
+      "install_info": {
+        "revision": "9ac99fe4c0c27a35dc6f757cef534c646e944881",
+        "url": "https://github.com/amaanq/tree-sitter-kconfig"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "kdl": {
+      "install_info": {
+        "revision": "b37e3d58e5c5cf8d739b315d6114e02d42e66664",
+        "url": "https://github.com/amaanq/tree-sitter-kdl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "kotlin": {
+      "install_info": {
+        "revision": "c4ddea359a7ff4d92360b2efcd6cfce5dc25afe6",
+        "url": "https://github.com/fwcd/tree-sitter-kotlin"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "koto": {
+      "install_info": {
+        "revision": "46770abba021e2ddd2c51d9fa3087fd1ab6b2aea",
+        "url": "https://github.com/koto-lang/tree-sitter-koto"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "kusto": {
+      "install_info": {
+        "revision": "8353a1296607d6ba33db7c7e312226e5fc83e8ce",
+        "url": "https://github.com/Willem-J-an/tree-sitter-kusto"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "lalrpop": {
+      "install_info": {
+        "revision": "8d38e9755c05d37df8a24dadb0fc64f6588ac188",
+        "url": "https://github.com/traxys/tree-sitter-lalrpop"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "latex": {
+      "install_info": {
+        "revision": "7b06f6ed394308e7407a1703d2724128c45fc9d7",
+        "url": "https://github.com/latex-lsp/tree-sitter-latex"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ledger": {
+      "install_info": {
+        "revision": "d313153eef68c557ba4538b20de2d0e92f3ef6f8",
+        "url": "https://github.com/cbarrete/tree-sitter-ledger"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "leo": {
+      "install_info": {
+        "revision": "6bc5564917edacd070afc4d33cf5e2e677831ea9",
+        "url": "https://github.com/r001/tree-sitter-leo"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "linkerscript": {
+      "install_info": {
+        "revision": "f99011a3554213b654985a4b0a65b3b032ec4621",
+        "url": "https://github.com/amaanq/tree-sitter-linkerscript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "liquid": {
+      "install_info": {
+        "revision": "d269f4d52cd08f6cbc6636ee23cc30a9f6c32e42",
+        "url": "https://github.com/hankthetank27/tree-sitter-liquid"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "liquidsoap": {
+      "install_info": {
+        "revision": "8e51fa63ddb93ac179d4e34a311d3d3f03780b42",
+        "url": "https://github.com/savonet/tree-sitter-liquidsoap"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "llvm": {
+      "install_info": {
+        "revision": "c14cb839003348692158b845db9edda201374548",
+        "url": "https://github.com/benwilliamgraham/tree-sitter-llvm"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "lua": {
+      "install_info": {
+        "revision": "db16e76558122e834ee214c8dc755b4a3edc82a9",
+        "url": "https://github.com/MunifTanjim/tree-sitter-lua"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "luadoc": {
+      "install_info": {
+        "revision": "873612aadd3f684dd4e631bdf42ea8990c57634e",
+        "url": "https://github.com/amaanq/tree-sitter-luadoc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "luap": {
+      "install_info": {
+        "revision": "c134aaec6acf4fa95fe4aa0dc9aba3eacdbbe55a",
+        "url": "https://github.com/amaanq/tree-sitter-luap"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "luau": {
+      "install_info": {
+        "revision": "a8914d6c1fc5131f8e1c13f769fa704c9f5eb02f",
+        "url": "https://github.com/amaanq/tree-sitter-luau"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "lua"
+      ]
+    },
+    "m68k": {
+      "install_info": {
+        "revision": "e128454c2210c0e0c10b68fe45ddb8fee80182a3",
+        "url": "https://github.com/grahambates/tree-sitter-m68k"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "make": {
+      "install_info": {
+        "revision": "a4b9187417d6be349ee5fd4b6e77b4172c6827dd",
+        "url": "https://github.com/alemuller/tree-sitter-make"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "markdown": {
+      "install_info": {
+        "location": "tree-sitter-markdown",
+        "revision": "413285231ce8fa8b11e7074bbe265b48aa7277f9",
+        "url": "https://github.com/MDeiml/tree-sitter-markdown"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "markdown_inline"
+      ]
+    },
+    "markdown_inline": {
+      "install_info": {
+        "location": "tree-sitter-markdown-inline",
+        "revision": "413285231ce8fa8b11e7074bbe265b48aa7277f9",
+        "url": "https://github.com/MDeiml/tree-sitter-markdown"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "matlab": {
+      "install_info": {
+        "revision": "bbf1b3f0bd7417c1efb8958fe95be3d0d540207a",
+        "url": "https://github.com/acristoffers/tree-sitter-matlab"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "menhir": {
+      "install_info": {
+        "revision": "be8866a6bcc2b563ab0de895af69daeffa88fe70",
+        "url": "https://github.com/Kerl13/tree-sitter-menhir"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "mermaid": {
+      "install_info": {
+        "revision": "90ae195b31933ceb9d079abfa8a3ad0a36fee4cc",
+        "url": "https://github.com/monaqa/tree-sitter-mermaid"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "meson": {
+      "install_info": {
+        "revision": "a56af662e8540412fed5e40cc20435b2b9a20502",
+        "url": "https://github.com/Decodetalkers/tree-sitter-meson"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "mlir": {
+      "install_info": {
+        "revision": "922cbb97f3d20044e6b4362b3d7af5e530ed8f34",
+        "url": "https://github.com/artagnon/tree-sitter-mlir"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "muttrc": {
+      "install_info": {
+        "revision": "173b0ab53a9c07962c9777189c4c70e90f1c1837",
+        "url": "https://github.com/neomutt/tree-sitter-muttrc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "nasm": {
+      "install_info": {
+        "revision": "d1b3638d017f2a8585e26dcfc66fe1df94185e30",
+        "url": "https://github.com/naclsn/tree-sitter-nasm"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "nginx": {
+      "install_info": {
+        "revision": "989da760be05a3334af3ec88705cbf57e6a9c41d",
+        "url": "https://github.com/opa-oz/tree-sitter-nginx"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "nickel": {
+      "install_info": {
+        "revision": "25464b33522c3f609fa512aa9651707c0b66d48b",
+        "url": "https://github.com/nickel-lang/tree-sitter-nickel"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "nim": {
+      "install_info": {
+        "revision": "897e5d346f0b59ed62b517cfb0f1a845ad8f0ab7",
+        "url": "https://github.com/alaviss/tree-sitter-nim"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "nim_format_string"
+      ]
+    },
+    "nim_format_string": {
+      "install_info": {
+        "revision": "d45f75022d147cda056e98bfba68222c9c8eca3a",
+        "url": "https://github.com/aMOPel/tree-sitter-nim-format-string"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ninja": {
+      "install_info": {
+        "revision": "0a95cfdc0745b6ae82f60d3a339b37f19b7b9267",
+        "url": "https://github.com/alemuller/tree-sitter-ninja"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "nix": {
+      "install_info": {
+        "revision": "cfc53fd287d23ab7281440a8526c73542984669b",
+        "url": "https://github.com/cstrahan/tree-sitter-nix"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "nqc": {
+      "install_info": {
+        "revision": "14e6da1627aaef21d2b2aa0c37d04269766dcc1d",
+        "url": "https://github.com/amaanq/tree-sitter-nqc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "nu": {
+      "install_info": {
+        "revision": "d5c71a10b4d1b02e38967b05f8de70e847448dd1",
+        "url": "https://github.com/nushell/tree-sitter-nu"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "objc": {
+      "install_info": {
+        "revision": "181a81b8f23a2d593e7ab4259981f50122909fda",
+        "url": "https://github.com/amaanq/tree-sitter-objc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "c"
+      ]
+    },
+    "objdump": {
+      "install_info": {
+        "revision": "28d3b2e25a0b1881d1b47ed1924ca276c7003d45",
+        "url": "https://github.com/ColinKennedy/tree-sitter-objdump"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ocaml": {
+      "install_info": {
+        "location": "grammars/ocaml",
+        "revision": "91708deb10cb4fe68ab3c50891426b9967dbf35a",
+        "url": "https://github.com/tree-sitter/tree-sitter-ocaml"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ocaml_interface": {
+      "install_info": {
+        "location": "grammars/interface",
+        "revision": "91708deb10cb4fe68ab3c50891426b9967dbf35a",
+        "url": "https://github.com/tree-sitter/tree-sitter-ocaml"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "ocaml"
+      ]
+    },
+    "ocamllex": {
+      "install_info": {
+        "revision": "c5cf996c23e38a1537069fbe2d4bb83a75fc7b2f",
+        "url": "https://github.com/atom-ocaml/tree-sitter-ocamllex"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "odin": {
+      "install_info": {
+        "revision": "d2ca8efb4487e156a60d5bd6db2598b872629403",
+        "url": "https://github.com/amaanq/tree-sitter-odin"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "pascal": {
+      "install_info": {
+        "revision": "78426d96bde7114af979e314283e45d087603428",
+        "url": "https://github.com/Isopod/tree-sitter-pascal"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "passwd": {
+      "install_info": {
+        "revision": "20239395eacdc2e0923a7e5683ad3605aee7b716",
+        "url": "https://github.com/ath3/tree-sitter-passwd"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "pem": {
+      "install_info": {
+        "revision": "1d16b8e063fdf4385e389096c4bc4999eaaef05f",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-pem"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "perl": {
+      "install_info": {
+        "revision": "ecd90bd8b381bcc7219fed4fe351903630e761c6",
+        "url": "https://github.com/tree-sitter-perl/tree-sitter-perl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "php": {
+      "install_info": {
+        "location": "php",
+        "revision": "576a56fa7f8b68c91524cdd211eb2ffc43e7bb11",
+        "url": "https://github.com/tree-sitter/tree-sitter-php"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "php_only"
+      ]
+    },
+    "php_only": {
+      "install_info": {
+        "location": "php_only",
+        "revision": "576a56fa7f8b68c91524cdd211eb2ffc43e7bb11",
+        "url": "https://github.com/tree-sitter/tree-sitter-php"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "phpdoc": {
+      "install_info": {
+        "revision": "fe3202e468bc17332bec8969f2b50ff1f1da3a46",
+        "url": "https://github.com/claytonrcarter/tree-sitter-phpdoc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "pioasm": {
+      "install_info": {
+        "revision": "afece58efdb30440bddd151ef1347fa8d6f744a9",
+        "url": "https://github.com/leo60228/tree-sitter-pioasm"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "po": {
+      "install_info": {
+        "revision": "bd860a0f57f697162bf28e576674be9c1500db5e",
+        "url": "https://github.com/erasin/tree-sitter-po"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "pod": {
+      "install_info": {
+        "revision": "0bf8387987c21bf2f8ed41d2575a8f22b139687f",
+        "url": "https://github.com/tree-sitter-perl/tree-sitter-pod"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "poe_filter": {
+      "install_info": {
+        "revision": "2902dc45439125b9386812c1089a8e9b5f71c4ab",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-poe-filter"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "pony": {
+      "install_info": {
+        "revision": "73ff874ae4c9e9b45462673cbc0a1e350e2522a7",
+        "url": "https://github.com/amaanq/tree-sitter-pony"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "powershell": {
+      "install_info": {
+        "revision": "66d5e61126989c0aca57ff77d19b2064919b51e1",
+        "url": "https://github.com/airbus-cert/tree-sitter-powershell"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "printf": {
+      "install_info": {
+        "revision": "df6b69967db7d74ab338a86a9ab45c0966c5ee3c",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-printf"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "prisma": {
+      "install_info": {
+        "revision": "73f39a6d5401cfdcd143951e499336cf5ab2ffaa",
+        "url": "https://github.com/victorhqc/tree-sitter-prisma"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "problog": {
+      "install_info": {
+        "location": "grammars/problog",
+        "revision": "d8d415f6a1cf80ca138524bcc395810b176d40fa",
+        "url": "https://github.com/foxyseta/tree-sitter-prolog"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "prolog"
+      ]
+    },
+    "prolog": {
+      "install_info": {
+        "location": "grammars/prolog",
+        "revision": "d8d415f6a1cf80ca138524bcc395810b176d40fa",
+        "url": "https://github.com/foxyseta/tree-sitter-prolog"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "promql": {
+      "install_info": {
+        "revision": "77625d78eebc3ffc44d114a07b2f348dff3061b0",
+        "url": "https://github.com/MichaHoffmann/tree-sitter-promql"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "properties": {
+      "install_info": {
+        "revision": "579b62f5ad8d96c2bb331f07d1408c92767531d9",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-properties"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "proto": {
+      "install_info": {
+        "revision": "e9f6b43f6844bd2189b50a422d4e2094313f6aa3",
+        "url": "https://github.com/treywood/tree-sitter-proto"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "prql": {
+      "install_info": {
+        "revision": "09e158cd3650581c0af4c49c2e5b10c4834c8646",
+        "url": "https://github.com/PRQL/tree-sitter-prql"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "psv": {
+      "install_info": {
+        "location": "psv",
+        "revision": "7eb7297823605392d2bbcc4c09b1cd18d6fa9529",
+        "url": "https://github.com/amaanq/tree-sitter-csv"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "tsv"
+      ]
+    },
+    "pug": {
+      "install_info": {
+        "revision": "13e9195370172c86a8b88184cc358b23b677cc46",
+        "url": "https://github.com/zealot128/tree-sitter-pug"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "puppet": {
+      "install_info": {
+        "revision": "15f192929b7d317f5914de2b4accd37b349182a6",
+        "url": "https://github.com/amaanq/tree-sitter-puppet"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "purescript": {
+      "install_info": {
+        "revision": "daf9b3e2be18b0b2996a1281f7783e0d041d8b80",
+        "url": "https://github.com/postsolar/tree-sitter-purescript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "pymanifest": {
+      "install_info": {
+        "revision": "be062582956165019d3253794b4d712f66dfeaaa",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-pymanifest"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "python": {
+      "install_info": {
+        "revision": "710796b8b877a970297106e5bbc8e2afa47f86ec",
+        "url": "https://github.com/tree-sitter/tree-sitter-python"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ql": {
+      "install_info": {
+        "revision": "1fd627a4e8bff8c24c11987474bd33112bead857",
+        "url": "https://github.com/tree-sitter/tree-sitter-ql"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "qmldir": {
+      "install_info": {
+        "revision": "6b2b5e41734bd6f07ea4c36ac20fb6f14061c841",
+        "url": "https://github.com/Decodetalkers/tree-sitter-qmldir"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "qmljs": {
+      "install_info": {
+        "revision": "0889da4632bba3ec6f39ef4102625654890c15c1",
+        "url": "https://github.com/yuja/tree-sitter-qmljs"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "ecma"
+      ]
+    },
+    "query": {
+      "install_info": {
+        "revision": "930202c2a80965a7a9ca018b5b2a08b25dfa7f12",
+        "url": "https://github.com/nvim-treesitter/tree-sitter-query"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "r": {
+      "install_info": {
+        "revision": "a0d3e3307489c3ca54da8c7b5b4e0c5f5fd6953a",
+        "url": "https://github.com/r-lib/tree-sitter-r"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "racket": {
+      "install_info": {
+        "revision": "5b211bf93021d1c45f39aa96898be9f794f087e4",
+        "url": "https://github.com/6cdh/tree-sitter-racket"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ralph": {
+      "install_info": {
+        "revision": "f6d81bf7a4599c77388035439cf5801cd461ff77",
+        "url": "https://github.com/alephium/tree-sitter-ralph"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "rasi": {
+      "install_info": {
+        "revision": "6c9bbcfdf5f0f553d9ebc01750a3aa247a37b8aa",
+        "url": "https://github.com/Fymyte/tree-sitter-rasi"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "razor": {
+      "install_info": {
+        "revision": "fe46ce5ea7d844e53d59bc96f2175d33691c61c5",
+        "url": "https://github.com/tris203/tree-sitter-razor"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "rbs": {
+      "install_info": {
+        "revision": "de893b166476205b09e79cd3689f95831269579a",
+        "url": "https://github.com/joker1007/tree-sitter-rbs"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "re2c": {
+      "install_info": {
+        "revision": "c18a3c2f4b6665e35b7e50d6048ea3cff770c572",
+        "url": "https://github.com/amaanq/tree-sitter-re2c"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "readline": {
+      "install_info": {
+        "revision": "74addc90fc539d31d413c0c7cf7581997a7fa46e",
+        "url": "https://github.com/ribru17/tree-sitter-readline"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "regex": {
+      "install_info": {
+        "revision": "b638d29335ef41215b86732dd51be34c701ef683",
+        "url": "https://github.com/tree-sitter/tree-sitter-regex"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "rego": {
+      "install_info": {
+        "revision": "20b5a5958c837bc9f74b231022a68a594a313f6d",
+        "url": "https://github.com/FallenAngel97/tree-sitter-rego"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "requirements": {
+      "install_info": {
+        "revision": "728910099ddea7f1f94ea95a35a70d1ea76a1639",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-requirements"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "rescript": {
+      "install_info": {
+        "revision": "4606cd81c4c31d1d02390fee530858323410a74c",
+        "url": "https://github.com/rescript-lang/tree-sitter-rescript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "rnoweb": {
+      "install_info": {
+        "revision": "1a74dc0ed731ad07db39f063e2c5a6fe528cae7f",
+        "url": "https://github.com/bamonroe/tree-sitter-rnoweb"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "robot": {
+      "install_info": {
+        "revision": "17c2300e91fc9da4ba14c16558bf4292941dc074",
+        "url": "https://github.com/Hubro/tree-sitter-robot"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "robots": {
+      "install_info": {
+        "revision": "8e3a4205b76236bb6dbebdbee5afc262ce38bb62",
+        "url": "https://github.com/opa-oz/tree-sitter-robots-txt"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "roc": {
+      "install_info": {
+        "revision": "0b1afe88161cbd81f5ddea1bb4fa786314ed49a7",
+        "url": "https://github.com/faldor20/tree-sitter-roc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ron": {
+      "install_info": {
+        "revision": "78938553b93075e638035f624973083451b29055",
+        "url": "https://github.com/amaanq/tree-sitter-ron"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "rst": {
+      "install_info": {
+        "revision": "4e562e1598b95b93db4f3f64fe40ddefbc677a15",
+        "url": "https://github.com/stsewd/tree-sitter-rst"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ruby": {
+      "install_info": {
+        "revision": "89bd7a8e5450cb6a942418a619d30469f259e5d6",
+        "url": "https://github.com/tree-sitter/tree-sitter-ruby"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "runescript": {
+      "install_info": {
+        "revision": "cf85bbd5da0c5ad243301d889c7f84d790a4cae4",
+        "url": "https://github.com/2004Scape/tree-sitter-runescript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "rust": {
+      "install_info": {
+        "revision": "e86119bdb4968b9799f6a014ca2401c178d54b5f",
+        "url": "https://github.com/tree-sitter/tree-sitter-rust"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "scala": {
+      "install_info": {
+        "revision": "c1189954df854977c3a52003ca8a247c5f4729ba",
+        "url": "https://github.com/tree-sitter/tree-sitter-scala"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "scfg": {
+      "install_info": {
+        "revision": "2f3709e7656fa2c443f92041c91a9f843f8cd625",
+        "url": "https://github.com/rockorager/tree-sitter-scfg"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "scheme": {
+      "install_info": {
+        "revision": "63e25a4a84142ae7ee0ee01fe3a32c985ca16745",
+        "url": "https://github.com/6cdh/tree-sitter-scheme"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "scss": {
+      "install_info": {
+        "revision": "c478c6868648eff49eb04a4df90d703dc45b312a",
+        "url": "https://github.com/serenadeai/tree-sitter-scss"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "css"
+      ]
+    },
+    "sflog": {
+      "install_info": {
+        "location": "sflog",
+        "revision": "3597575a429766dd7ecce9f5bb97f6fec4419d5d",
+        "url": "https://github.com/aheber/tree-sitter-sfapex"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "slang": {
+      "install_info": {
+        "revision": "3ed23c04a412a0559162d9cadf96dfff7cb36079",
+        "url": "https://github.com/theHamsta/tree-sitter-slang"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "slim": {
+      "install_info": {
+        "revision": "546e3aa1af8a3b355c7734efccd9a759ffc0b43a",
+        "url": "https://github.com/theoo/tree-sitter-slim"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "slint": {
+      "install_info": {
+        "revision": "f11da7e62051ba8b9d4faa299c26de8aeedfc1cd",
+        "url": "https://github.com/slint-ui/tree-sitter-slint"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "smali": {
+      "install_info": {
+        "revision": "fdfa6a1febc43c7467aa7e937b87b607956f2346",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-smali"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "smithy": {
+      "install_info": {
+        "revision": "fa898ac0885d1da9a253695c3e0e91f5efc587cd",
+        "url": "https://github.com/indoorvivants/tree-sitter-smithy"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "snakemake": {
+      "install_info": {
+        "revision": "f36c1587624d6d84376c82a357c20fc319cbf02c",
+        "url": "https://github.com/osthomas/tree-sitter-snakemake"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "solidity": {
+      "install_info": {
+        "revision": "d38dcd0b58b223c43e3f9265914fb3167dc624c6",
+        "url": "https://github.com/JoranHonig/tree-sitter-solidity"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "soql": {
+      "install_info": {
+        "location": "soql",
+        "revision": "3597575a429766dd7ecce9f5bb97f6fec4419d5d",
+        "url": "https://github.com/aheber/tree-sitter-sfapex"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "sosl": {
+      "install_info": {
+        "location": "sosl",
+        "revision": "3597575a429766dd7ecce9f5bb97f6fec4419d5d",
+        "url": "https://github.com/aheber/tree-sitter-sfapex"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "sourcepawn": {
+      "install_info": {
+        "revision": "f2af8d0dc14c6790130cceb2a20027eb41a8297c",
+        "url": "https://github.com/nilshelmig/tree-sitter-sourcepawn"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "sparql": {
+      "install_info": {
+        "revision": "d853661ca680d8ff7f8d800182d5782b61d0dd58",
+        "url": "https://github.com/GordianDziwis/tree-sitter-sparql"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "sql": {
+      "install_info": {
+        "revision": "b9d109588d5b5ed986c857464830c2f0bef53f18",
+        "url": "https://github.com/derekstride/tree-sitter-sql"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "squirrel": {
+      "install_info": {
+        "revision": "072c969749e66f000dba35a33c387650e203e96e",
+        "url": "https://github.com/amaanq/tree-sitter-squirrel"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ssh_config": {
+      "install_info": {
+        "revision": "0dd3c7e9f301758f6c69a6efde43d3048deb4d8a",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-ssh-config"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "starlark": {
+      "install_info": {
+        "revision": "a453dbf3ba433db0e5ec621a38a7e59d72e4dc69",
+        "url": "https://github.com/amaanq/tree-sitter-starlark"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "strace": {
+      "install_info": {
+        "revision": "d819cdd5dbe455bd3c859193633c8d91c0df7c36",
+        "url": "https://github.com/sigmaSd/tree-sitter-strace"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "styled": {
+      "install_info": {
+        "revision": "319cdcaa0346ba6db668a222d938e5c3569e2a51",
+        "url": "https://github.com/mskelton/tree-sitter-styled"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "supercollider": {
+      "install_info": {
+        "revision": "1a8ee0da9a4f2df5a8a22f4d637ac863623a78a7",
+        "url": "https://github.com/madskjeldgaard/tree-sitter-supercollider"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "superhtml": {
+      "install_info": {
+        "location": "tree-sitter-superhtml",
+        "revision": "16887e9fa3122c36a3d4942470e33c1c282fe859",
+        "url": "https://github.com/kristoff-it/superhtml"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "surface": {
+      "install_info": {
+        "revision": "f4586b35ac8548667a9aaa4eae44456c1f43d032",
+        "url": "https://github.com/connorlay/tree-sitter-surface"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "svelte": {
+      "install_info": {
+        "revision": "ae5199db47757f785e43a14b332118a5474de1a2",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-svelte"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "html_tags"
+      ]
+    },
+    "sway": {
+      "install_info": {
+        "revision": "395006713db3bbb90d267ebdfcbf1881b399b05c",
+        "url": "https://github.com/FuelLabs/tree-sitter-sway.git"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "swift": {
+      "install_info": {
+        "revision": "aca5a52aa3cab858944d3c02701ccf5b2d8fd0f9",
+        "url": "https://github.com/alex-pinkus/tree-sitter-swift"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "sxhkdrc": {
+      "install_info": {
+        "revision": "440d5f913d9465c9c776a1bd92334d32febcf065",
+        "url": "https://github.com/RaafatTurki/tree-sitter-sxhkdrc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "systemtap": {
+      "install_info": {
+        "revision": "f2b378a9af0b7e1192cff67a5fb45508c927205d",
+        "url": "https://github.com/ok-ryoko/tree-sitter-systemtap"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "t32": {
+      "install_info": {
+        "revision": "e5a12f798f056049642aa03fbb83786e3a5b95d4",
+        "url": "https://gitlab.com/xasc/tree-sitter-t32.git"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "tablegen": {
+      "install_info": {
+        "revision": "b1170880c61355aaf38fc06f4af7d3c55abdabc4",
+        "url": "https://github.com/amaanq/tree-sitter-tablegen"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "tact": {
+      "install_info": {
+        "revision": "47af20264abbd24ea282ded0f8ee9cad3cf3bf2f",
+        "url": "https://github.com/tact-lang/tree-sitter-tact"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "tcl": {
+      "install_info": {
+        "revision": "f15e711167661d1ba541d4f62b9dbfc4ce61ec56",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-tcl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "teal": {
+      "install_info": {
+        "revision": "3db655924b2ff1c54fdf6371b5425ea6b5dccefe",
+        "url": "https://github.com/euclidianAce/tree-sitter-teal"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "templ": {
+      "install_info": {
+        "revision": "def9849184de71a797c4e2b2837df85abeccf92c",
+        "url": "https://github.com/vrischmann/tree-sitter-templ"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "tera": {
+      "install_info": {
+        "revision": "25a7c617192253bddfa65e378975d8c476419010",
+        "url": "https://github.com/uncenter/tree-sitter-tera"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "terraform": {
+      "install_info": {
+        "location": "dialects/terraform",
+        "revision": "de10d494dbd6b71cdf07a678fecbf404dbfe4398",
+        "url": "https://github.com/MichaHoffmann/tree-sitter-hcl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "hcl"
+      ]
+    },
+    "textproto": {
+      "install_info": {
+        "revision": "568471b80fd8793d37ed01865d8c2208a9fefd1b",
+        "url": "https://github.com/PorterAtGoogle/tree-sitter-textproto"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "thrift": {
+      "install_info": {
+        "revision": "68fd0d80943a828d9e6f49c58a74be1e9ca142cf",
+        "url": "https://github.com/duskmoon314/tree-sitter-thrift"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "tiger": {
+      "install_info": {
+        "revision": "4a77b2d7a004587646bddc4e854779044b6db459",
+        "url": "https://github.com/ambroisie/tree-sitter-tiger"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "tlaplus": {
+      "install_info": {
+        "revision": "4ba91b07b97741a67f61221d0d50e6d962e4987e",
+        "url": "https://github.com/tlaplus-community/tree-sitter-tlaplus"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "tmux": {
+      "install_info": {
+        "revision": "0252ecd080016e45e6305ef1a943388f5ae2f4b4",
+        "url": "https://github.com/Freed-Wu/tree-sitter-tmux"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "todotxt": {
+      "install_info": {
+        "revision": "3937c5cd105ec4127448651a21aef45f52d19609",
+        "url": "https://github.com/arnarg/tree-sitter-todotxt"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "toml": {
+      "install_info": {
+        "revision": "64b56832c2cffe41758f28e05c756a3a98d16f41",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-toml"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "tsv": {
+      "install_info": {
+        "location": "tsv",
+        "revision": "7eb7297823605392d2bbcc4c09b1cd18d6fa9529",
+        "url": "https://github.com/amaanq/tree-sitter-csv"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "tsx": {
+      "install_info": {
+        "location": "tsx",
+        "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
+        "url": "https://github.com/tree-sitter/tree-sitter-typescript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "ecma",
+        "jsx",
+        "typescript"
+      ]
+    },
+    "turtle": {
+      "install_info": {
+        "revision": "7f789ea7ef765080f71a298fc96b7c957fa24422",
+        "url": "https://github.com/GordianDziwis/tree-sitter-turtle"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "twig": {
+      "install_info": {
+        "revision": "085648e01d1422163a1702a44e72303b4e2a0bd1",
+        "url": "https://github.com/gbprod/tree-sitter-twig"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "typescript": {
+      "install_info": {
+        "location": "typescript",
+        "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
+        "url": "https://github.com/tree-sitter/tree-sitter-typescript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "ecma"
+      ]
+    },
+    "typespec": {
+      "install_info": {
+        "revision": "42fb163442ef2691b9b720fb4e4e846809415d18",
+        "url": "https://github.com/happenslol/tree-sitter-typespec"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "typoscript": {
+      "install_info": {
+        "revision": "5d8fde870b0ded1f429ba5bb249a9d9f8589ff5f",
+        "url": "https://github.com/Teddytrombone/tree-sitter-typoscript"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "typst": {
+      "install_info": {
+        "revision": "46cf4ded12ee974a70bf8457263b67ad7ee0379d",
+        "url": "https://github.com/uben0/tree-sitter-typst"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "udev": {
+      "install_info": {
+        "revision": "18a1d183c4c0cc40438bae2ebf8191aaf2dee8dc",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-udev"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ungrammar": {
+      "install_info": {
+        "revision": "debd26fed283d80456ebafa33a06957b0c52e451",
+        "url": "https://github.com/Philipp-M/tree-sitter-ungrammar"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "unison": {
+      "install_info": {
+        "revision": "169e7f748a540ec360c0cb086b448faad012caa4",
+        "url": "https://github.com/kylegoetz/tree-sitter-unison"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "usd": {
+      "install_info": {
+        "revision": "4e0875f724d94d0c2ff36f9b8cb0b12f8b20d216",
+        "url": "https://github.com/ColinKennedy/tree-sitter-usd"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "uxntal": {
+      "install_info": {
+        "revision": "ad9b638b914095320de85d59c49ab271603af048",
+        "url": "https://github.com/amaanq/tree-sitter-uxntal"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "v": {
+      "install_info": {
+        "location": "tree_sitter_v",
+        "revision": "26c2c4c2b3fb4f7a07ae78d298b36998b7ffa956",
+        "url": "https://github.com/vlang/v-analyzer"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "vala": {
+      "install_info": {
+        "revision": "97e6db3c8c73b15a9541a458d8e797a07f588ef4",
+        "url": "https://github.com/vala-lang/tree-sitter-vala"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "vento": {
+      "install_info": {
+        "revision": "3b32474bc29584ea214e4e84b47102408263fe0e",
+        "url": "https://github.com/ventojs/tree-sitter-vento"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "verilog": {
+      "install_info": {
+        "revision": "15fbf73dafaffc89050d247857beb27500ea30e8",
+        "url": "https://github.com/gmlarumbe/tree-sitter-systemverilog"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "vhdl": {
+      "install_info": {
+        "revision": "35ed277d3e98836796bc764010dc3fb800d14ee4",
+        "url": "https://github.com/jpt13653903/tree-sitter-vhdl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "vhs": {
+      "install_info": {
+        "revision": "0c6fae9d2cfc5b217bfd1fe84a7678f5917116db",
+        "url": "https://github.com/charmbracelet/tree-sitter-vhs"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "vim": {
+      "install_info": {
+        "revision": "11b688a1f0e97c0c4e3dbabf4a38016335f4d237",
+        "url": "https://github.com/neovim/tree-sitter-vim"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "vimdoc": {
+      "install_info": {
+        "revision": "2694c3d27e2ca98a0ccde72f33887394300d524e",
+        "url": "https://github.com/neovim/tree-sitter-vimdoc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "vrl": {
+      "install_info": {
+        "revision": "274b3ce63f72aa8ffea18e7fc280d3062d28f0ba",
+        "url": "https://github.com/belltoy/tree-sitter-vrl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "vue": {
+      "install_info": {
+        "revision": "22bdfa6c9fc0f5ffa44c6e938ec46869ac8a99ff",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-vue"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "html_tags"
+      ]
+    },
+    "wgsl": {
+      "install_info": {
+        "revision": "40259f3c77ea856841a4e0c4c807705f3e4a2b65",
+        "url": "https://github.com/szebniok/tree-sitter-wgsl"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "wgsl_bevy": {
+      "install_info": {
+        "revision": "47c1818d245a6156a488c4c4d06e9336714bae9b",
+        "url": "https://github.com/theHamsta/tree-sitter-wgsl-bevy"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "wing": {
+      "install_info": {
+        "revision": "76e0c25844a66ebc6e866d690fcc5f4e90698947",
+        "url": "https://github.com/winglang/tree-sitter-wing"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "wit": {
+      "install_info": {
+        "revision": "81490b4e74c792369e005f72b0d46fe082d3fed2",
+        "url": "https://github.com/liamwh/tree-sitter-wit"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "xcompose": {
+      "install_info": {
+        "revision": "fff3e72242aa110ebba6441946ea4d12d200fa68",
+        "url": "https://github.com/ObserverOfTime/tree-sitter-xcompose"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "xml": {
+      "install_info": {
+        "location": "xml",
+        "revision": "0d9a8099c963ed53e183425c1b47fa2622c8eaf7",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-xml"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "dtd"
+      ]
+    },
+    "xresources": {
+      "install_info": {
+        "revision": "d0f9dc7cec4dc15fc6f9d556bb4e9dd5050328a6",
+        "url": "https://github.com/ValdezFOmar/tree-sitter-xresources"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "yaml": {
+      "install_info": {
+        "revision": "1805917414a9a8ba2473717fd69447277a175fae",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-yaml"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "yang": {
+      "install_info": {
+        "revision": "2c0e6be8dd4dcb961c345fa35c309ad4f5bd3502",
+        "url": "https://github.com/Hubro/tree-sitter-yang"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "yuck": {
+      "install_info": {
+        "revision": "e877f6ade4b77d5ef8787075141053631ba12318",
+        "url": "https://github.com/Philipp-M/tree-sitter-yuck"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "zathurarc": {
+      "install_info": {
+        "revision": "0554b4a5d313244b7fc000cbb41c04afae4f4e31",
+        "url": "https://github.com/Freed-Wu/tree-sitter-zathurarc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "zig": {
+      "install_info": {
+        "revision": "b670c8df85a1568f498aa5c8cae42f51a90473c0",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-zig"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ziggy": {
+      "install_info": {
+        "location": "tree-sitter-ziggy",
+        "revision": "8a29017169f43dc2c3526817e98142eb9a335087",
+        "url": "https://github.com/kristoff-it/ziggy"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "ziggy_schema": {
+      "install_info": {
+        "location": "tree-sitter-ziggy-schema",
+        "revision": "8a29017169f43dc2c3526817e98142eb9a335087",
+        "url": "https://github.com/kristoff-it/ziggy"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    }
+  }
+}
