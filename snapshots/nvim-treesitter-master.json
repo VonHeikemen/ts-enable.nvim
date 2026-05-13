@@ -1,11 +1,11 @@
 {
   "meta": {
+    "note": "Parsers for Neovim v0.9 and v0.10",
     "query_fallback": {
       "location": "queries",
       "revision": "42fc28ba918343ebfd5565147a42a26580579482",
       "url": "https://github.com/nvim-treesitter/nvim-treesitter"
-    },
-    "note": "Parsers for Neovim v0.9 and v0.10"
+    }
   },
   "parsers": {
     "ada": {
@@ -31,6 +31,9 @@
         "revision": "843525141575e397541e119698f0532755e959f6",
         "url": "https://github.com/dlvandenberg/tree-sitter-angular"
       },
+      "language_filetypes": [
+        "htmlangular"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
@@ -106,6 +109,9 @@
         "revision": "0c46d792d54c536be5ff7eb18eb95c70fccdb232",
         "url": "https://github.com/tree-sitter/tree-sitter-bash"
       },
+      "language_filetypes": [
+        "sh"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -133,6 +139,9 @@
         "revision": "ccfd77db0ed799b6c22c214fe9d2937f47bc8b34",
         "url": "https://github.com/latex-lsp/tree-sitter-bibtex"
       },
+      "language_filetypes": [
+        "bib"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -205,6 +214,10 @@
         "revision": "b5eb5742f6a7e9438bee22ce8026d6b927be2cd7",
         "url": "https://github.com/tree-sitter/tree-sitter-c-sharp"
       },
+      "language_filetypes": [
+        "cs",
+        "csharp"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -286,6 +299,9 @@
         "revision": "32323509b3d9fe96607d151c2da2c9009eb13a2f",
         "url": "https://github.com/theHamsta/tree-sitter-commonlisp"
       },
+      "language_filetypes": [
+        "lisp"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -295,6 +311,9 @@
         "revision": "4ebe237c1cf64cf3826fc249e9ec0988fe07e58e",
         "url": "https://github.com/addcninblue/tree-sitter-cooklang"
       },
+      "language_filetypes": [
+        "cook"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -413,6 +432,9 @@
         "revision": "16f640f3c59117c9e749d581634afdb00e004f4c",
         "url": "https://github.com/joelspadin/tree-sitter-devicetree"
       },
+      "language_filetypes": [
+        "dts"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -431,6 +453,9 @@
         "revision": "e42b8def4f75633568f1aecfe01817bf15164928",
         "url": "https://github.com/the-mikedavis/tree-sitter-diff"
       },
+      "language_filetypes": [
+        "gitdiff"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -540,6 +565,9 @@
         "revision": "f742f2fe327463335e8671a87c0b9b396905d1d1",
         "url": "https://github.com/connorlay/tree-sitter-eex"
       },
+      "language_filetypes": [
+        "eelixir"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -549,6 +577,9 @@
         "revision": "450a8194f5a66561135962cfc8d7545a27b61c4c",
         "url": "https://github.com/elixir-lang/tree-sitter-elixir"
       },
+      "language_filetypes": [
+        "ex"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -585,6 +616,9 @@
         "revision": "8495d106154741e6d35d37064f864758ece75de6",
         "url": "https://github.com/tree-sitter/tree-sitter-embedded-template"
       },
+      "language_filetypes": [
+        "eruby"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -603,6 +637,9 @@
         "revision": "416ca60d7d2a824c0d346163541153e230710780",
         "url": "https://github.com/WhatsApp/tree-sitter-erlang"
       },
+      "language_filetypes": [
+        "erl"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -612,6 +649,9 @@
         "revision": "e4bfd3e960de9f4b4648acb1c92e9b95b47d8cfb",
         "url": "https://github.com/FacilityApi/tree-sitter-facility"
       },
+      "language_filetypes": [
+        "fsd"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -621,6 +661,9 @@
         "revision": "f3b9274514b5f9bf6b0dd4a01c30f9cc15c58bc4",
         "url": "https://github.com/khiner/tree-sitter-faust"
       },
+      "language_filetypes": [
+        "dsp"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -760,6 +803,9 @@
         "revision": "ffd9f958df13cae04593781d7d2562295a872455",
         "url": "https://github.com/GodOfAvacyn/tree-sitter-gdshader"
       },
+      "language_filetypes": [
+        "gdshaderinc"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -769,6 +815,9 @@
         "revision": "9c2a1b7894e6d9eedfe99805b829b4ecd871375e",
         "url": "https://github.com/the-mikedavis/tree-sitter-git-config"
       },
+      "language_filetypes": [
+        "gitconfig"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -778,6 +827,9 @@
         "revision": "bff4b66b44b020d918d67e2828eada1974a966aa",
         "url": "https://github.com/the-mikedavis/tree-sitter-git-rebase"
       },
+      "language_filetypes": [
+        "gitrebase"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -823,6 +875,10 @@
         "revision": "da605af8c5999b43e6839b575eae5e6cafabb06f",
         "url": "https://github.com/ember-tooling/tree-sitter-glimmer"
       },
+      "language_filetypes": [
+        "handlebars",
+        "html.handlebars"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -832,6 +888,9 @@
         "revision": "5cc865a2a0a77cbfaf5062c8fcf2a9919bd54f87",
         "url": "https://github.com/NullVoxPopuli/tree-sitter-glimmer-javascript"
       },
+      "language_filetypes": [
+        "javascript.glimmer"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
@@ -844,6 +903,9 @@
         "revision": "12d98944c1d5077b957cbdb90d663a7c4d50118c",
         "url": "https://github.com/NullVoxPopuli/tree-sitter-glimmer-typescript"
       },
+      "language_filetypes": [
+        "typescript.glimmer"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
@@ -904,6 +966,9 @@
         "revision": "91c55fdf325a832659e59cdf4a02bfe8a423f14c",
         "url": "https://github.com/PrestonKnopp/tree-sitter-godot-resource"
       },
+      "language_filetypes": [
+        "gdresource"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1012,6 +1077,9 @@
         "revision": "0975ef72fc3c47b530309ca93937d7d143523628",
         "url": "https://github.com/tree-sitter/tree-sitter-haskell"
       },
+      "language_filetypes": [
+        "hs"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1021,6 +1089,9 @@
         "revision": "577259b4068b2c281c9ebf94c109bd50a74d5857",
         "url": "https://github.com/MercuryTechnologies/tree-sitter-haskell-persistent"
       },
+      "language_filetypes": [
+        "haskellpersistent"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1174,6 +1245,9 @@
         "revision": "c56a25cf57c68ff929356db25505c1cc4c7820f6",
         "url": "https://github.com/kayhide/tree-sitter-idris"
       },
+      "language_filetypes": [
+        "idris2"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1183,6 +1257,10 @@
         "revision": "32b31863f222bf22eb43b07d4e9be8017e36fb31",
         "url": "https://github.com/justinmk/tree-sitter-ini"
       },
+      "language_filetypes": [
+        "confini",
+        "dosini"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1222,6 +1300,9 @@
         "revision": "b08b402207fba0037d5152ce7c521351147f4388",
         "url": "https://github.com/sogaiu/tree-sitter-janet-simple"
       },
+      "language_filetypes": [
+        "janet"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1249,6 +1330,13 @@
         "revision": "6fbef40512dcd9f0a61ce03a4c9ae7597b36ab5c",
         "url": "https://github.com/tree-sitter/tree-sitter-javascript"
       },
+      "language_filetypes": [
+        "javascriptreact",
+        "ecma",
+        "ecmascript",
+        "jsx",
+        "js"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
@@ -1303,6 +1391,9 @@
         "revision": "46aa487b3ade14b7b05ef92507fdaa3915a662a3",
         "url": "https://github.com/tree-sitter/tree-sitter-json"
       },
+      "language_filetypes": [
+        "jsonc"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1428,6 +1519,9 @@
         "revision": "7b06f6ed394308e7407a1703d2724128c45fc9d7",
         "url": "https://github.com/latex-lsp/tree-sitter-latex"
       },
+      "language_filetypes": [
+        "tex"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1455,6 +1549,9 @@
         "revision": "f99011a3554213b654985a4b0a65b3b032ec4621",
         "url": "https://github.com/amaanq/tree-sitter-linkerscript"
       },
+      "language_filetypes": [
+        "ld"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1530,6 +1627,9 @@
         "revision": "e128454c2210c0e0c10b68fe45ddb8fee80182a3",
         "url": "https://github.com/grahambates/tree-sitter-m68k"
       },
+      "language_filetypes": [
+        "asm68k"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1539,6 +1639,9 @@
         "revision": "a4b9187417d6be349ee5fd4b6e77b4172c6827dd",
         "url": "https://github.com/alemuller/tree-sitter-make"
       },
+      "language_filetypes": [
+        "automake"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1549,6 +1652,9 @@
         "revision": "413285231ce8fa8b11e7074bbe265b48aa7277f9",
         "url": "https://github.com/MDeiml/tree-sitter-markdown"
       },
+      "language_filetypes": [
+        "pandoc"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
@@ -1616,6 +1722,9 @@
         "revision": "173b0ab53a9c07962c9777189c4c70e90f1c1837",
         "url": "https://github.com/neomutt/tree-sitter-muttrc"
       },
+      "language_filetypes": [
+        "neomuttrc"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1741,6 +1850,9 @@
         "revision": "91708deb10cb4fe68ab3c50891426b9967dbf35a",
         "url": "https://github.com/tree-sitter/tree-sitter-ocaml"
       },
+      "language_filetypes": [
+        "ocamlinterface"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
@@ -1798,6 +1910,9 @@
         "revision": "ecd90bd8b381bcc7219fed4fe351903630e761c6",
         "url": "https://github.com/tree-sitter-perl/tree-sitter-perl"
       },
+      "language_filetypes": [
+        "pl"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1866,6 +1981,9 @@
         "revision": "2902dc45439125b9386812c1089a8e9b5f71c4ab",
         "url": "https://github.com/ObserverOfTime/tree-sitter-poe-filter"
       },
+      "language_filetypes": [
+        "poefilter"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1884,6 +2002,9 @@
         "revision": "66d5e61126989c0aca57ff77d19b2064919b51e1",
         "url": "https://github.com/airbus-cert/tree-sitter-powershell"
       },
+      "language_filetypes": [
+        "ps1"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -1943,6 +2064,9 @@
         "revision": "579b62f5ad8d96c2bb331f07d1408c92767531d9",
         "url": "https://github.com/tree-sitter-grammars/tree-sitter-properties"
       },
+      "language_filetypes": [
+        "jproperties"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2019,6 +2143,10 @@
         "revision": "710796b8b877a970297106e5bbc8e2afa47f86ec",
         "url": "https://github.com/tree-sitter/tree-sitter-python"
       },
+      "language_filetypes": [
+        "py",
+        "gyp"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2046,6 +2174,9 @@
         "revision": "0889da4632bba3ec6f39ef4102625654890c15c1",
         "url": "https://github.com/yuja/tree-sitter-qmljs"
       },
+      "language_filetypes": [
+        "qml"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
@@ -2238,6 +2369,9 @@
         "revision": "cf85bbd5da0c5ad243301d889c7f84d790a4cae4",
         "url": "https://github.com/2004Scape/tree-sitter-runescript"
       },
+      "language_filetypes": [
+        "clientscript"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2256,6 +2390,9 @@
         "revision": "c1189954df854977c3a52003ca8a247c5f4729ba",
         "url": "https://github.com/tree-sitter/tree-sitter-scala"
       },
+      "language_filetypes": [
+        "sbt"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2305,6 +2442,9 @@
         "revision": "3ed23c04a412a0559162d9cadf96dfff7cb36079",
         "url": "https://github.com/theHamsta/tree-sitter-slang"
       },
+      "language_filetypes": [
+        "shaderslang"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2424,6 +2564,9 @@
         "revision": "0dd3c7e9f301758f6c69a6efde43d3048deb4d8a",
         "url": "https://github.com/ObserverOfTime/tree-sitter-ssh-config"
       },
+      "language_filetypes": [
+        "sshconfig"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2433,6 +2576,9 @@
         "revision": "a453dbf3ba433db0e5ec621a38a7e59d72e4dc69",
         "url": "https://github.com/amaanq/tree-sitter-starlark"
       },
+      "language_filetypes": [
+        "bzl"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2479,6 +2625,9 @@
         "revision": "f4586b35ac8548667a9aaa4eae44456c1f43d032",
         "url": "https://github.com/connorlay/tree-sitter-surface"
       },
+      "language_filetypes": [
+        "sface"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2536,6 +2685,9 @@
         "revision": "e5a12f798f056049642aa03fbb83786e3a5b95d4",
         "url": "https://gitlab.com/xasc/tree-sitter-t32.git"
       },
+      "language_filetypes": [
+        "trace32"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2563,6 +2715,9 @@
         "revision": "f15e711167661d1ba541d4f62b9dbfc4ce61ec56",
         "url": "https://github.com/tree-sitter-grammars/tree-sitter-tcl"
       },
+      "language_filetypes": [
+        "expect"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2600,6 +2755,9 @@
         "revision": "de10d494dbd6b71cdf07a678fecbf404dbfe4398",
         "url": "https://github.com/MichaHoffmann/tree-sitter-hcl"
       },
+      "language_filetypes": [
+        "terraform-vars"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
@@ -2612,6 +2770,9 @@
         "revision": "568471b80fd8793d37ed01865d8c2208a9fefd1b",
         "url": "https://github.com/PorterAtGoogle/tree-sitter-textproto"
       },
+      "language_filetypes": [
+        "pbtxt"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2639,6 +2800,9 @@
         "revision": "4ba91b07b97741a67f61221d0d50e6d962e4987e",
         "url": "https://github.com/tlaplus-community/tree-sitter-tlaplus"
       },
+      "language_filetypes": [
+        "tla"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2686,6 +2850,10 @@
         "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
         "url": "https://github.com/tree-sitter/tree-sitter-typescript"
       },
+      "language_filetypes": [
+        "typescriptreact",
+        "typescript.tsx"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
@@ -2719,6 +2887,9 @@
         "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
         "url": "https://github.com/tree-sitter/tree-sitter-typescript"
       },
+      "language_filetypes": [
+        "ts"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
@@ -2749,6 +2920,9 @@
         "revision": "46cf4ded12ee974a70bf8457263b67ad7ee0379d",
         "url": "https://github.com/uben0/tree-sitter-typst"
       },
+      "language_filetypes": [
+        "typ"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2758,6 +2932,9 @@
         "revision": "18a1d183c4c0cc40438bae2ebf8191aaf2dee8dc",
         "url": "https://github.com/ObserverOfTime/tree-sitter-udev"
       },
+      "language_filetypes": [
+        "udevrules"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2794,6 +2971,10 @@
         "revision": "ad9b638b914095320de85d59c49ab271603af048",
         "url": "https://github.com/amaanq/tree-sitter-uxntal"
       },
+      "language_filetypes": [
+        "tal",
+        "uxn"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2804,6 +2985,9 @@
         "revision": "26c2c4c2b3fb4f7a07ae78d298b36998b7ffa956",
         "url": "https://github.com/vlang/v-analyzer"
       },
+      "language_filetypes": [
+        "vlang"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2849,6 +3033,9 @@
         "revision": "0c6fae9d2cfc5b217bfd1fe84a7678f5917116db",
         "url": "https://github.com/charmbracelet/tree-sitter-vhs"
       },
+      "language_filetypes": [
+        "tape"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -2943,6 +3130,11 @@
         "revision": "0d9a8099c963ed53e183425c1b47fa2622c8eaf7",
         "url": "https://github.com/tree-sitter-grammars/tree-sitter-xml"
       },
+      "language_filetypes": [
+        "xsd",
+        "xslt",
+        "svg"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
@@ -2955,6 +3147,9 @@
         "revision": "d0f9dc7cec4dc15fc6f9d556bb4e9dd5050328a6",
         "url": "https://github.com/ValdezFOmar/tree-sitter-xresources"
       },
+      "language_filetypes": [
+        "xdefaults"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
