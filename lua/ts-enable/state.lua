@@ -23,7 +23,7 @@ function M.create(config)
     return new_state
   end
 
-  local ok, data = pcall(M.read_file, config.parser_info)
+  local _, data = pcall(M.read_file, config.parser_info)
   if not data then
     new_state.err = string.format('Could not read "%s"', config.parser_info)
     return new_state
@@ -34,7 +34,7 @@ function M.create(config)
   ---
   local queries = 'queries/*/highlights.scm'
   new_state.builtin = {}
-  for _, q in ipairs(vim.fn.globpath(vim.env.VIMRUNTIME, queries, 0, 1)) do
+  for _, q in ipairs(vim.fn.globpath(vim.env.VIMRUNTIME, queries, false, true)) do
     local name = vim.fn.fnamemodify(q, ':h:t')
     new_state.builtin[name] = true
   end
