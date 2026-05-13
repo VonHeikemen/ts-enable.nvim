@@ -92,7 +92,7 @@ function H.generate_parser(args)
     table.insert(cmd, joinpath({'src', 'grammar.json'}))
   end
 
-  local file = from_json and 'grammar.json' or 'grammar.js'
+  local file = args.from_json and 'grammar.json' or 'grammar.js'
   log('info', args.ctx, 'Generating parser.c from %s', file)
 
   local cmd_opts = {cwd = args.source_dir, env = {TREE_SITTER_JS_RUNTIME = 'native'}}
@@ -240,11 +240,11 @@ function H.copy_queries(args)
 
   local State = require('ts-enable.state')
   local output = joinpath({State.dir.queries, args.name})
-  local source = false
+  local source
 
   if vim.startswith(args.ctx, 'install') then
     if uv.fs_stat(output) then
-      log('info', ctx, 'queries already installed')
+      log('info', args.ctx, 'queries already installed')
       return true
     end
   end
@@ -303,7 +303,7 @@ function H.copy_dir(args)
   vim.fn.delete(output, 'rf')
   vim.fn.mkdir(output, 'p')
 
-  for _, path in ipairs(vim.fn.globpath(src, '*.scm', 0, 1)) do
+  for _, path in ipairs(vim.fn.globpath(src, '*.scm', false, true)) do
     local file = vim.fn.fnamemodify(path, ':t')
 
     local ok, e = pcall(uv.fs_copyfile, joinpath({src, file}), joinpath({output, file}))
@@ -502,7 +502,7 @@ function M.install_parser(langs, on_install)
   local downloads = {}
   for _, data in pairs(context.urls) do
     table.insert(downloads, function()
-      local ok, err = pcall(H.fetch_revision, data) 
+      local ok, err = pcall(H.fetch_revision, data)
       if not ok then
         log('error', data.ctx, 'Error during "download": %e', err)
       end
@@ -591,13 +591,12 @@ function M.update_parser(langs, on_update)
   require('ts-enable')._init()
   local State = require('ts-enable.state')
   if langs[1] == nil then
-    local parsers = vim.fn.globpath(State.dir.parser_info, '*.json', 0 , 1)
+    local parsers = vim.fn.globpath(State.dir.parser_info, '*.json', false , true)
     for _, path in ipairs(parsers) do
       table.insert(langs, vim.fn.fnamemodify(path, ':t:r'))
     end
   end
 
-  local query_fallback_dir = State.dir.query_fallback
   local parser_info = State.read_snapshot(State.cache.global_config)
 
   local cb = {}
@@ -635,7 +634,7 @@ function M.update_parser(langs, on_update)
         updates.queries[data.name] = result
       end
 
-      H.fetch_revision(data) 
+      H.fetch_revision(data)
     end)
   end
 
@@ -688,8 +687,8 @@ function M.update_parser(langs, on_update)
       local save = step1 or step2
       if save then
         local new_query = updates.queries[name]
-        if new_query 
-          and data.queries_info 
+        if new_query
+          and data.queries_info
           and data.queries_info.url
           and data.queries_info.revision
         then
@@ -769,7 +768,7 @@ function M.sync()
 
   local State = require('ts-enable.state')
   local snapshot = State.read_snapshot(State.cache.global_config)
-  local parsers = vim.fn.globpath(State.dir.parser_info, '*.json', 0 , 1)
+  local parsers = vim.fn.globpath(State.dir.parser_info, '*.json', false , true)
   local changed = false
   for _, path in ipairs(parsers) do
     local name = vim.fn.fnamemodify(path, ':t:r')
@@ -785,8 +784,8 @@ function M.sync()
 
       local queries_info = current_state.queries_info
       if queries_info.copy_from == nil
-        and queries_info.url 
-        and queries_info.revision 
+        and queries_info.url
+        and queries_info.revision
         and installed.queries
         and installed.queries.source == 'external'
       then
