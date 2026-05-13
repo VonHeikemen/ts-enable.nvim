@@ -2,6 +2,9 @@
 
 This plugin will help you enable features that depend on [treesitter](#what-is-treesitter).
 
+>[!IMPORTANT]
+> The v2.x branch is a work in progress. It should be in a functional state but it still needs some testing.
+
 The idea here is to be able to use treesitter by setting a few variables. For example:
 
 ```vim
