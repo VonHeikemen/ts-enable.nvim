@@ -48,7 +48,7 @@ function H.fetch_revision(args)
   log('info', args.ctx, 'Downloading %s', args.url)
 
   if revision == nil then
-    local result = co_system({'git', 'ls-remote', args.url, 'HEAD'})
+    local result = co_system({'git', 'ls-remote', args.url, 'HEAD'}, {})
     ok = result.code == 0
     if not ok then
       log('error', args.ctx, 'Could not get revision')
@@ -501,7 +501,12 @@ function M.install_parser(langs, on_install)
 
   local downloads = {}
   for _, data in pairs(context.urls) do
-    table.insert(downloads, function() H.fetch_revision(data) end)
+    table.insert(downloads, function()
+      local ok, err = pcall(H.fetch_revision, data) 
+      if not ok then
+        log('error', data.ctx, 'Error during "download": %e', err)
+      end
+    end)
   end
 
   local do_compile = {}
