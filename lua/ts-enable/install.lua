@@ -347,41 +347,44 @@ function H.prepare(context, lang)
     end
   end
 
+  context.index = context.index + 1
+
   local new_repo = {
     name = lang,
     ctx = ctx,
     install_info = data.install_info or {skip = true},
     queries_info = data.queries_info or {skip = true},
-    download_dir = joinpath({
+  }
+
+  if url then
+    new_repo.download_dir = joinpath({
       context.temp_dir,
       fmt('%s-%s', context.prefix, url:match('[^/]+$'))
     })
-  }
 
-  context.index = context.index + 1
+    local parser_seen = context.urls[url]
+    if not parser_seen then
+      context.urls[url] = {
+        name = lang,
+        url = url,
+        ctx = ctx,
+        kind = 'parser',
+        revision = revision,
+        download_dir = new_repo.download_dir,
+      }
+    end
 
-  local parser_seen = context.urls[url]
-  if not parser_seen then
-    context.urls[url] = {
-      name = lang,
-      url = url,
-      ctx = ctx,
-      kind = 'parser',
-      revision = revision,
-      download_dir = new_repo.download_dir,
-    }
-  end
-
-  if parser_seen and parser_seen.revision ~= revision then
-    new_repo.download_dir = fmt('%s-%s', new_repo.download_dir, context.index)
-    context.urls[url .. context.index] = {
-      name = lang,
-      url = url,
-      ctx = ctx,
-      kind = 'parser',
-      revision = new_repo.install_info.revision,
-      download_dir = new_repo.download_dir,
-    }
+    if parser_seen and parser_seen.revision ~= revision then
+      new_repo.download_dir = fmt('%s-%s', new_repo.download_dir, context.index)
+      context.urls[url .. context.index] = {
+        name = lang,
+        url = url,
+        ctx = ctx,
+        kind = 'parser',
+        revision = new_repo.install_info.revision,
+        download_dir = new_repo.download_dir,
+      }
+    end
   end
 
   local query_source = new_repo.queries_info.copy_from
