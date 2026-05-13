@@ -150,7 +150,7 @@ specific parser.
           "sh"
         ],
         "queries_info": {
-          "url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-bash"
+          "url": "https://github.com/neovim-treesitter/nvim-treesitter-queries-bash",
           "revision": "6e198671f2e8de504c2099f92d52cc2a68f13410"
         }
       }
