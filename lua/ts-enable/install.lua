@@ -317,16 +317,22 @@ function H.copy_dir(args)
 end
 
 function H.prepare(context, lang)
-  local data = context.parser_info.parsers[lang]
-  if context.repos[lang] or data == nil then
+  if context.repos[lang] then
     return
   end
 
   local fmt = string.format
+  local ctx = fmt('%s/%s', context.action, lang)
+  local data = context.parser_info.parsers[lang]
+
+  if data == nil then
+    log('warn', ctx, 'Not found in parser info file')
+    return
+  end
+
   local State = require('ts-enable.state')
   local is_update = context.action == 'update'
   local is_install = context.action == 'install'
-  local ctx = fmt('%s/%s', context.action, lang)
 
   local url = vim.tbl_get(data, 'install_info', 'url')
   local revision = vim.tbl_get(data, 'install_info', 'revision')
