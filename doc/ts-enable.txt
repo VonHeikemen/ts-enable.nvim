@@ -160,7 +160,8 @@ specific parser.
 ==============================================================================
 Commands                                                  *ts-enable-commands*
 
-TSEnableExec {method}: ~
+TSEnableExec {method}:                                         *:TSEnableExec*
+
     So, {method} should be the name of a lua function of the module
     `ts-enable`. This is just a convenience command for you to execute
     functions available in the lua API.
@@ -172,21 +173,26 @@ TSEnableExec {method}: ~
         • attach
         • detach
 
-TSEnableInstall {name} ~
+TSEnableInstall {name}                                      *:TSEnableInstall*
+
     Install the parser with {name}. Note that {name} must be a valid entry in
     the parser info file.
 
-TSEnableUpdate {name} ~
+TSEnableUpdate {name}                                        *:TSEnableUpdate*
+
     Update installed parsers. If {name} is not specified all installed parsers
     will be updated.
 
-TSEnableRemove {name} ~
+TSEnableRemove {name}                                        *:TSEnableRemove*
+
     Remove files of installed parsers. {name} must be an installed parser.
 
-TSEnableSync ~
+TSEnableSync                                                   *:TSEnableSync*
+
     Update parser info file with the state of the installed parsers.
 
-TSEnableQueryFallback {method}: ~
+TSEnableQueryFallback {method}:                       *:TSEnableQueryFallback*
+
     Manage the query fallback directory.
 
     Valid {methods}:
