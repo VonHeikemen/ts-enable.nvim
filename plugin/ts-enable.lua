@@ -52,6 +52,28 @@ vim.api.nvim_create_user_command('TSEnableSync', function()
   require('ts-enable.install').sync()
 end, {})
 
+vim.api.nvim_create_user_command('TSEnableQueryFallback', function(input)
+  local cmd = input.args
+  local tse_install = require('ts-enable.install')
+
+  if cmd == 'install' then
+    tse_install.install_qf()
+    return
+  end
+
+  if cmd == 'update' then
+    tse_install.update_qf()
+    return
+  end
+
+  if cmd == 'remove' then
+    tse_install.remove_qf()
+    return
+  end
+
+  vim.notify(string.format('[ts-enable]: Invalid sub-command "%s"', cmd))
+end, {nargs = 1})
+
 vim.api.nvim_create_user_command('TSEnableRestore', function(input)
   local tse_install = require('ts-enable.install')
   tse_install.remove_parser(input.args)

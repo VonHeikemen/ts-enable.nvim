@@ -763,6 +763,107 @@ function M.remove_parser(langs)
   log('info', 'delete', 'Completed')
 end
 
+function M.install_qf()
+  require('ts-enable')._init()
+  local ctx = 'install/query_fallback'
+  local State = require('ts-enable.state')
+  local query_fallback_dir = State.dir.query_fallback
+
+  if uv.fs_stat(query_fallback_dir) then
+    log('warn', ctx, 'Already installed')
+    return
+  end
+
+  local parser_info = State.read_snapshot(State.cache.global_config)
+  local query_fallback = vim.tbl_get(parser_info, 'meta', 'query_fallback') or {}
+
+  if query_fallback.url == nil then
+    log('warn', ctx, 'Data must have a valid URL')
+    return
+  end
+
+  compat.co_thread(function()
+    local ok, result = pcall(H.fetch_revision, {
+      url = query_fallback.url,
+      ctx = ctx,
+      revision = query_fallback.revision,
+      download_dir = query_fallback_dir,
+    })
+
+    if not ok then
+      log('error', ctx, result)
+      return
+    end
+
+    log('info', ctx, 'Completed')
+  end)
+end
+
+function M.update_qf()
+  require('ts-enable')._init()
+  local ctx = 'update/query_fallback'
+  local State = require('ts-enable.state')
+  local query_fallback_dir = State.dir.query_fallback
+
+  if not uv.fs_stat(query_fallback_dir) then
+    log('warn', ctx, 'Fallback repository is not installed')
+    return
+  end
+
+  local parser_info = State.read_snapshot(State.cache.global_config)
+  local query_fallback = vim.tbl_get(parser_info, 'meta', 'query_fallback') or {}
+
+  if query_fallback.url == nil then
+    log('warn', ctx, 'Data must have a valid URL')
+    return
+  end
+
+  compat.co_thread(function()
+    local ok1, revision = H.get_latest_revision(query_fallback.url)
+    if not ok1 then
+      log('error', ctx, revision)
+      return
+    end
+
+    local rev_path = joinpath({query_fallback_dir, '.git', 'HEAD'})
+    local current_rev = State.fs_read(rev_path)
+    if not current_rev then
+      log('error', ctx, 'Could not get current revision')
+      return
+    end
+
+    if revision == vim.trim(current_rev) then
+      log('info', ctx, 'Already up-to-date')
+      return
+    end
+
+    vim.fn.delete(query_fallback_dir, 'rf')
+
+    local ok2, result = pcall(H.fetch_revision, {
+      url = query_fallback.url,
+      ctx = ctx,
+      revision = revision,
+      download_dir = query_fallback_dir,
+    })
+
+    if not ok2 then
+      log('error', ctx, result)
+      return
+    end
+
+    log('info', ctx, 'Completed')
+  end)
+end
+
+function M.remove_qf()
+  require('ts-enable')._init()
+  local ctx = 'delete/query_fallback'
+  local State = require('ts-enable.state')
+
+  vim.fn.delete(State.dir.query_fallback, 'rf')
+  log('info', ctx, 'Completed')
+end
+
 function M.sync()
   require('ts-enable')._init()
 
@@ -792,6 +893,21 @@ function M.sync()
         changed = true
         snapshot.parsers[name].queries_info.revision = installed.queries.revision
       end
+    end
+  end
+
+  local query_fallback = vim.tbl_get(snapshot, 'meta', 'query_fallback') or {}
+  if query_fallback.url then
+    local rev_path = joinpath({State.dir.query_fallback, '.git', 'HEAD'})
+    local current_rev = State.fs_read(rev_path)
+
+    if current_rev then
+      current_rev = vim.trim(current_rev)
+    end
+
+    if current_rev and query_fallback.revision ~= current_rev then
+      changed = true
+      snapshot.meta.query_fallback.revision = current_rev
     end
   end
 

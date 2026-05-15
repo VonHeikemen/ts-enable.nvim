@@ -112,5 +112,17 @@ function M.write_file(path, data, format)
   return true
 end
 
+function M.fs_read(path)
+  local fd = uv.fs_open(path, 'r', 438)
+  if fd then
+    local stat = assert(uv.fs_fstat(fd))
+    local data = assert(uv.fs_read(fd, stat.size, 0))
+    assert(uv.fs_close(fd))
+    return data
+  end
+
+  return false
+end
+
 return M
 

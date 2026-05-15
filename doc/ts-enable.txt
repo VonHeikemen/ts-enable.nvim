@@ -186,6 +186,14 @@ TSEnableRemove {name} ~
 TSEnableSync ~
     Update parser info file with the state of the installed parsers.
 
+TSEnableQueryFallback {method}: ~
+    Manage the query fallback directory.
+
+    Valid {methods}:
+        • install
+        • update
+        • remove
+
 ==============================================================================
 Lua API                                                    *ts-enable-lua-api*
 
