@@ -216,7 +216,7 @@ ts_enable.auto_install = false
 vim.g.ts_enable = ts_enable
 ```
 
-### ts-enable.nvim is not strictly needed
+## ts-enable.nvim is not strictly needed
 
 If you choose to live a plugin-free life and still want to use treesitter, you need to know how things work. I'll show you an example.
 
