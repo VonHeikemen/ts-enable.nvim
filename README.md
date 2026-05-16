@@ -131,7 +131,7 @@ If you are sure the updated parsers work just fine and want to update `treesitte
 
 Here I'll give you a summary. For more details you can read this: [Treesitter in Neovim](https://vonheikemen.github.io/learn-nvim/feature/treesitter.html).
 
-The main purpose of treesitter is to read the source code of a file and turn that into a data structure. Why? Because it's easier to extract information from structured data than plain text. And what do **we** do with this data thing? Us, casual Neovim users, we do nothing. Neovim mantainers and plugin authors are the ones who use it to implement the features **we** will interact with.
+The main purpose of treesitter is to read the source code of a file and turn that into a data structure. Why? Because it's easier to extract information from structured data than plain text. And what do **we** do with this data thing? Us, casual Neovim users, we do nothing. Neovim maintainers and plugin authors are the ones who use it to implement the features **we** will interact with.
 
 Language support is where things get interesting. Treesitter is not a miracle silver bullet that supports every programming language. We add support for a language by installing the appropiate "treesitter parser," which is the component that deals with the specific syntax of a language.
 
@@ -250,7 +250,7 @@ For brevity, I will assume a you are using a linux system. Remember this is just
 
 Anyway, the parser must be in a directory called `parser`. And the name of the file becomes the name of the parser.
 
-Because `bash` is not an actual name of a filetype we must "register" the filetype of the parser. So, in your Neovim configuration you can add this.
+In most cases the name of the parser is used to determine the filetype where is going to be used. But because `bash` is not an actual name of a filetype we must "register" the filetype of the parser. So, in your Neovim configuration you can add this.
 
 ```lua
 vim.treesitter.language.register('bash', {'sh'})
@@ -258,15 +258,15 @@ vim.treesitter.language.register('bash', {'sh'})
 
 Here we tell Neovim to use the `bash` parser whenever we open a file with filetype `sh`.
 
-Next you need the treesitter queries for the feature you want to use. In this particular case, the bash parser only has highlight queries builtin. See the [queries directory](https://github.com/tree-sitter/tree-sitter-bash/tree/a06c2e4415e9bc0346c6b86d401879ffb44058f7/queries) in the github repository. That lonely `highlights.scm` file should also be in Neovim's runtime path. So, copy it.
+Next you need the treesitter queries for the feature you want to use. The bash parser only has highlight queries builtin. See the [queries directory](https://github.com/tree-sitter/tree-sitter-bash/tree/a06c2e4415e9bc0346c6b86d401879ffb44058f7/queries) in the github repository. That lonely `highlights.scm` file should also be in Neovim's runtime path. So, copy it.
 
 ```sh
 cp ./queries/highlights.scm ~/.config/nvim/queries/bash/highlights.scm
 ```
 
-Treesitter queries need to be in a directory called `queries`. The queries for a parser must be in a sub-directory that has the same name as the parser. That's where the query files must live.
+Treesitter queries need to be in a directory called `queries`. The query files for a parser must be in a sub-directory that has the same name as the parser.
 
-Now you need to enable the feature in Neovim itself. The bash parser only has queries highlights so that's the want you can enable. Do this in your personal configuration.
+Now you need to enable the feature in Neovim itself. The bash parser only has queries highlights so that's the one you can enable. Do this in your personal configuration.
 
 ```lua
 -- NOTE: It is important that you install treesitter parsers and queries.
@@ -285,7 +285,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 ```
 
-One last thing... treesitter parsers can be incompatible with your Neovim version. If the parser too new and your Neovim is too old, that could be a problem.
+One last thing... treesitter parsers can be incompatible with your Neovim version. If the parser is too new and your Neovim is too old, that could be a problem.
 
 Now you have all the knowledge needed to use treesitter without plugins.
 
