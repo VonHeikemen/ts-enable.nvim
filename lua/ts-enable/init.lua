@@ -85,6 +85,28 @@ local function ts_install(buffer, lang, ft)
     return false
   end
 
+  local has_treesitter_cli = global_state.has_treesitter_cli
+  if not has_treesitter_cli then
+    if has_treesitter_cli == nil then
+      has_treesitter_cli = vim.fn.executable('tree-sitter') == 1
+      global_state.has_treesitter_cli = has_treesitter_cli
+    end
+
+    if has_treesitter_cli == false then
+      global_config.auto_install = false
+      local ps = global_config.parser_settings or {}
+      for _, s in pairs(ps) do
+        if s.auto_install then
+          s.auto_install = false
+        end
+      end
+
+      local msg = '[ts-enable/auto_install]: tree-sitter CLI was not found'
+      vim.notify_once(msg, vim.log.levels.WARN)
+      return false
+    end
+  end
+
   local available = global_state.filetypes[ft]
   if available == -2 then
     global_state.filetypes[ft] = -1
