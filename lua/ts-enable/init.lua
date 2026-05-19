@@ -18,6 +18,9 @@ local compat
 ---Enable vim.treesitter based syntax highlight
 ---@field highlights? boolean
 ---
+---Re-enable regex syntax files if highlights is enabled
+---@field regex_syntax? boolean
+---
 ---Set vim.treesitter fold expression
 ---@field folds? boolean
 ---
@@ -156,6 +159,9 @@ function M.start(buffer, lang, config)
     local ok, hl = pcall(ts.query.get, lang, 'highlights')
     if ok and hl then
       ts.start(buffer, lang)
+      if config.regex_syntax then
+        vim.api.nvim_set_option_value('syntax', 'ON', {scope = 'local', buf = buffer})
+      end
     end
   end
 

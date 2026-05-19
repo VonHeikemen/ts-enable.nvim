@@ -68,6 +68,7 @@ let g:ts_enable = {
 \ 'auto_init': v:false,
 \ 'auto_install': v:false,
 \ 'highlights': v:false,
+\ 'regex_syntax': v:false,
 \ 'folds': v:false,
 \ 'parser_info': stdpath('config') . '/treesitter-parsers.json',
 \ 'parser_settings': {},
@@ -82,6 +83,7 @@ vim.g.ts_enable = {
   auto_init = false,
   auto_install = false,
   highlights = false,
+  regex_syntax = false,
   folds = false,
   parser_info = vim.fn.stdpath('config') .. '/treesitter-parsers.json',
   parser_settings = {},
@@ -92,7 +94,9 @@ vim.g.ts_enable = {
 
 * `auto_install`: Boolean. If enabled install a missing parser from the "parser info" file.
 
-* `highlights`: Boolean. If enabled use `vim.treesitter.start()` to enable treesitter based syntax highlight.
+* `highlights`: Boolean. If enabled use `vim.treesitter.start()` to enable treesitter based syntax highlight. Note this will switch off regex based syntax which some old plugins may still use.
+
+* `regex_syntax`: Boolean. If enabled switch on regex based syntax after executing `vim.treesitter.start()`.
 
 * `folds`: Boolean. If enabled set the option `foldexpr` to use treesitter.
 
