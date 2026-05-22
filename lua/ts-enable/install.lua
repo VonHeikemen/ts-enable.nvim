@@ -769,6 +769,31 @@ function M.remove_parser(langs)
   log('info', 'delete', 'Completed')
 end
 
+function M.ensure_installed()
+  require('ts-enable')._init()
+
+  local State = require('ts-enable.state')
+  local parser_info = State.read_snapshot(State.cache.global_config)
+  local parsers = parser_info.parsers or {}
+  for name, _ in pairs(parsers) do
+    parsers[name] = true
+  end
+
+  local installed = vim.fn.globpath(State.dir.parser_info, '*.json', false , true)
+  for _, path in ipairs(installed) do
+    local name = vim.fn.fnamemodify(path, ':t:r')
+    parsers[name] = nil
+  end
+
+  local to_install = vim.tbl_keys(parsers)
+  if #to_install == 0 then
+    logger.info('Parsers already installed')
+    return
+  end
+
+  M.install_parser(to_install)
+end
+
 function M.install_qf()
   require('ts-enable')._init()
   local ctx = 'install/query_fallback'

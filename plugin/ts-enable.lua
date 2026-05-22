@@ -40,6 +40,10 @@ vim.api.nvim_create_user_command('TSEnableInstall', function(input)
   require('ts-enable.install').install_parser(input.fargs)
 end, {nargs = '+'})
 
+vim.api.nvim_create_user_command('TSEnableEnsureInstalled', function()
+  require('ts-enable.install').ensure_installed()
+end, {})
+
 vim.api.nvim_create_user_command('TSEnableUpdate', function(input)
   require('ts-enable.install').update_parser(input.fargs)
 end, {nargs = '*'})

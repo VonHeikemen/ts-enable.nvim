@@ -184,6 +184,10 @@ TSEnableInstall {name}                                      *:TSEnableInstall*
     Install the parser with {name}. Note that {name} must be a valid entry in
     the parser info file.
 
+TSEnableEnsureInstalled                             *:TSEnableEnsureInstalled*
+
+    Install all missing parsers listed in the parser info file.
+
 TSEnableUpdate {name}                                        *:TSEnableUpdate*
 
     Update installed parsers. If {name} is not specified all installed parsers
