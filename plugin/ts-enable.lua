@@ -3,7 +3,7 @@ if vim.g.loaded_ts_enable ~= nil then
 end
 
 vim.g.loaded_ts_enable = 1
-local valid_commmands = {'start', 'stop', 'toggle', 'attach', 'detach', 'ensure_installed'}
+local valid_commmands = {'start', 'stop', 'toggle', 'attach', 'detach'}
 
 local function cmd_completion(input)
   local result = {}
