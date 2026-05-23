@@ -181,9 +181,7 @@ if vim.fn.has('nvim-0.11') == 0 then
     table.insert(fts, name)
     return fts
   end
-end
 
-if vim.fn.has('nvim-0.10') == 0 then
   M.get_lang = function(ft)
     local lang = vim.treesitter.language.get_lang(ft)
     if lang then
