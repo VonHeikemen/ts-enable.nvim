@@ -171,17 +171,19 @@ if vim.fn.has('nvim-0.11') == 0 then
   M.parser_available = function(name)
     return pcall(vim.treesitter.language.add, name)
   end
-end
 
-if vim.fn.has('nvim-0.10') == 0 then
   M.ts_filetypes = function(name)
     local fts = vim.treesitter.language.get_filetypes(name)
     if fts[1] == nil then
-      fts = {name}
+      return {name}
     end
+
+    table.insert(fts, name)
     return fts
   end
+end
 
+if vim.fn.has('nvim-0.10') == 0 then
   M.get_lang = function(ft)
     local lang = vim.treesitter.language.get_lang(ft)
     if lang then
