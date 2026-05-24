@@ -117,7 +117,7 @@ vim.g.ts_enable = {
 }
 ```
 
-The `auto_init` option will generate an initial "parser info" file with a list of 26 treesitter parsers. This will be a json file located in Neovim's configuration directory. By default it'll be called `treesitter-parsers.json`. Since `auto_install` is set to `true` a parser will be installed if you open a file that needs it. To know more about the parser info file see [the help page](https://github.com/VonHeikemen/ts-enable.nvim/blob/7bd88f16a607b137fcc930ca625421ee11b4e67a/doc/ts-enable.txt#L64), or execute the command `:help ts-enable-parser-info` inside Neovim.
+The `auto_init` option will generate an initial "parser info" file with a [list of 26 treesitter parsers](https://github.com/VonHeikemen/ts-enable.nvim/blob/v2.x/snapshots/README.md#auto_init). This will be a json file located in Neovim's configuration directory. By default it'll be called `treesitter-parsers.json`. Since `auto_install` is set to `true` a parser will be installed if you open a file that needs it. To know more about the parser info file see [the help page](https://github.com/VonHeikemen/ts-enable.nvim/blob/v2.x/doc/ts-enable.txt#L64), or execute the command `:help ts-enable-parser-info` inside Neovim.
 
 You can add or remove parsers from the parser info file if you want. You can find more parsers in the [snapshots directory](https://github.com/VonHeikemen/ts-enable.nvim/tree/v2.x/snapshots) of this plugin. Note that removing a parser from `treesitter-parsers.json` does not delete it, it'll just be ignored.
 
